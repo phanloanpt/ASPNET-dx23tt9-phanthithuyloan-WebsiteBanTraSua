@@ -100,6 +100,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Admin\Orders\OrderDetail.aspx" />
+    <Content Include="Admin\Orders\OrderList.aspx" />
+    <Content Include="Admin\Products\ProductCreate.aspx" />
+    <Content Include="Admin\Products\ProductDelete.aspx" />
+    <Content Include="Admin\Products\ProductEdit.aspx" />
+    <Content Include="Admin\Products\ProductList.aspx" />
+    <Content Include="Admin\Toppings\ToppingCreate.aspx" />
+    <Content Include="Admin\Toppings\ToppingEdit.aspx" />
+    <Content Include="Admin\Toppings\ToppingList.aspx" />
     <Content Include="Cart.aspx" />
     <Content Include="Checkout.aspx" />
     <Content Include="Contact.aspx" />
@@ -199,6 +208,81 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Orders\OrderDetail.aspx.cs">
+      <DependentUpon>OrderDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Orders\OrderDetail.aspx.designer.cs">
+      <DependentUpon>OrderDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Orders\OrderList.aspx.cs">
+      <DependentUpon>OrderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Orders\OrderList.aspx.designer.cs">
+      <DependentUpon>OrderList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Products\ProductCreate.aspx.cs">
+      <DependentUpon>ProductCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Products\ProductCreate.aspx.designer.cs">
+      <DependentUpon>ProductCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Products\ProductDelete.aspx.cs">
+      <DependentUpon>ProductDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Products\ProductDelete.aspx.designer.cs">
+      <DependentUpon>ProductDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Products\ProductEdit.aspx.cs">
+      <DependentUpon>ProductEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Products\ProductEdit.aspx.designer.cs">
+      <DependentUpon>ProductEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Products\ProductList.aspx.cs">
+      <DependentUpon>ProductList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Products\ProductList.aspx.designer.cs">
+      <DependentUpon>ProductList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Toppings\ToppingCreate.aspx.cs">
+      <DependentUpon>ToppingCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Toppings\ToppingCreate.aspx.designer.cs">
+      <DependentUpon>ToppingCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Toppings\ToppingEdit.aspx.cs">
+      <DependentUpon>ToppingEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Toppings\ToppingEdit.aspx.designer.cs">
+      <DependentUpon>ToppingEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Toppings\ToppingList.aspx.cs">
+      <DependentUpon>ToppingList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Toppings\ToppingList.aspx.designer.cs">
+      <DependentUpon>ToppingList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\DAL\NewsDAL.cs" />
+    <Compile Include="App_Code\Models\News.cs" />
+    <Compile Include="App_Code\BLL\NewsBLL.cs" />
+    <Compile Include="App_Code\DAL\Database.cs" />
+    <Compile Include="App_Code\Helpers\DBHelper.cs" />
+    <Compile Include="App_Code\Models\Category.cs" />
+    <Compile Include="App_Code\DAL\Category.cs" />
+    <Compile Include="App_Code\BLL\CategoryBLL.cs" />
+    <Compile Include="App_Code\DAL\CategoryDAL.cs" />
+    <Compile Include="App_Code\Models\Product.cs" />
+    <Compile Include="App_Code\DAL\ProductDAL.cs" />
+    <Compile Include="App_Code\BLL\ProductBLL.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Cart.aspx.cs">
@@ -308,14 +392,7 @@
     <Folder Include="Admin\Categories\" />
     <Folder Include="Admin\Inventory\" />
     <Folder Include="Admin\News\" />
-    <Folder Include="Admin\Orders\" />
-    <Folder Include="Admin\Products\" />
     <Folder Include="Admin\Reports\" />
-    <Folder Include="Admin\Toppings\" />
-    <Folder Include="App_Code\BLL\" />
-    <Folder Include="App_Code\DAL\" />
-    <Folder Include="App_Code\Helpers\" />
-    <Folder Include="App_Code\Models\" />
     <Folder Include="App_Data\" />
     <Folder Include="Assets\css\" />
     <Folder Include="Assets\images\banners\" />

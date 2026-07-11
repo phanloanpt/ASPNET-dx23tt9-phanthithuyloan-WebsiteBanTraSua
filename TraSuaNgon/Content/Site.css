@@ -1,21 +1,203 @@
-﻿/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
+﻿/* ==========================================
+   LAYOUT CHUNG
+========================================== */
+
 .body-content {
     margin-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
 }
 
-/* Set widths on the form inputs since otherwise they're 100% wide */
 input,
 select,
 textarea {
     max-width: 280px;
 }
 
-/* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .body-content {
         padding: 0;
+    }
+}
+.section-divider {
+    border: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #e91e63, transparent);
+    margin: 60px auto;
+    width: 80%;
+}
+
+/* ==========================================
+   CAROUSEL
+========================================== */
+
+#mainCarousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+    #mainCarousel .carousel-inner {
+        border-radius: 15px;
+    }
+
+    #mainCarousel .carousel-item {
+        height: 500px;
+    }
+
+        #mainCarousel .carousel-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            object-position: center center;
+            display: block;
+        }
+
+.banner-img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+}
+
+/* ==========================================
+   TIÊU ĐỀ
+========================================== */
+
+.section-title {
+    font-weight: 700;
+    color: #e91e63;
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+
+/* ===== TIÊU ĐỀ CÁC SECTION ===== */
+
+.title-featured {
+    color: #e91e63;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.title-new {
+    color: #28a745;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.title-best {
+    color: #ff5722;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.title-news {
+    color: #2196f3;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.section-icon {
+    margin-right: 10px;
+}
+/* ==========================================
+   CARD SẢN PHẨM
+========================================== */
+
+.product-card {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+    .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 25px rgba(0,0,0,.15);
+    }
+
+.product-image {
+    position: relative;
+}
+
+.product-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+}
+
+.badge-product {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.price {
+    color: #e91e63;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.btn-danger {
+    background: #e91e63;
+    border: none;
+}
+
+    .btn-danger:hover {
+        background: #c2185b;
+    }
+
+.sub-news-card {
+    min-height: 170px;
+}
+
+.sub-news-img {
+    object-fit: cover;
+    height: 170px;
+}
+
+.main-news-img {
+    width: 100%;
+    height: 540px;
+    object-fit: cover;
+}
+
+.sub-news-card .card-body {
+    padding: 10px;
+}
+.search-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+    .search-box input {
+        border-radius: 10px;
+    }
+
+    .search-box .btn {
+        border-radius: 10px;
+    }
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 576px) {
+
+    #mainCarousel .carousel-item,
+    #mainCarousel .carousel-item img,
+    .banner-img {
+        height: 220px;
+    }
+
+    .product-img {
+        height: 220px;
     }
 }
