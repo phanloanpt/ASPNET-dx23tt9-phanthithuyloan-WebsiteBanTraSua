@@ -100,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Admin\Orders\OrderDetail.aspx" />
     <Content Include="Admin\Orders\OrderList.aspx" />
     <Content Include="Admin\Products\ProductCreate.aspx" />
@@ -109,6 +110,7 @@
     <Content Include="Admin\Toppings\ToppingCreate.aspx" />
     <Content Include="Admin\Toppings\ToppingEdit.aspx" />
     <Content Include="Admin\Toppings\ToppingList.aspx" />
+    <Content Include="Admin\Users\Users.aspx" />
     <Content Include="Cart.aspx" />
     <Content Include="Checkout.aspx" />
     <Content Include="Contact.aspx" />
@@ -133,6 +135,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="Menu.aspx" />
     <Content Include="News.aspx" />
     <Content Include="OrderSuccess.aspx" />
@@ -167,6 +170,7 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Admin\Admin.Master" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -207,6 +211,13 @@
     </Compile>
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Orders\OrderDetail.aspx.cs">
       <DependentUpon>OrderDetail.aspx</DependentUpon>
@@ -250,6 +261,13 @@
     <Compile Include="Admin\Products\ProductList.aspx.designer.cs">
       <DependentUpon>ProductList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Toppings\ToppingCreate.aspx.cs">
       <DependentUpon>ToppingCreate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -271,7 +289,21 @@
     <Compile Include="Admin\Toppings\ToppingList.aspx.designer.cs">
       <DependentUpon>ToppingList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Users\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Users\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\BLL\OrderBLL.cs" />
+    <Compile Include="App_Code\BLL\ToppingBLL.cs" />
+    <Compile Include="App_Code\BLL\UserBLL.cs" />
     <Compile Include="App_Code\DAL\NewsDAL.cs" />
+    <Compile Include="App_Code\DAL\OrderDAL.cs" />
+    <Compile Include="App_Code\DAL\ToppingDAL.cs" />
+    <Compile Include="App_Code\DAL\UserDAL.cs" />
+    <Compile Include="App_Code\Models\CartItem.cs" />
     <Compile Include="App_Code\Models\News.cs" />
     <Compile Include="App_Code\BLL\NewsBLL.cs" />
     <Compile Include="App_Code\DAL\Database.cs" />
@@ -280,9 +312,14 @@
     <Compile Include="App_Code\DAL\Category.cs" />
     <Compile Include="App_Code\BLL\CategoryBLL.cs" />
     <Compile Include="App_Code\DAL\CategoryDAL.cs" />
+    <Compile Include="App_Code\Models\Order.cs" />
+    <Compile Include="App_Code\Models\OrderDetail.cs" />
+    <Compile Include="App_Code\Models\OrderDetailTopping.cs" />
     <Compile Include="App_Code\Models\Product.cs" />
     <Compile Include="App_Code\DAL\ProductDAL.cs" />
     <Compile Include="App_Code\BLL\ProductBLL.cs" />
+    <Compile Include="App_Code\Models\Topping.cs" />
+    <Compile Include="App_Code\Models\User.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Cart.aspx.cs">
@@ -322,6 +359,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Menu.aspx.cs">
       <DependentUpon>Menu.aspx</DependentUpon>

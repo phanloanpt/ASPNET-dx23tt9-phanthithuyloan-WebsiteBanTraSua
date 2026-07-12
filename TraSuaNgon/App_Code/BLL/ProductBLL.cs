@@ -38,6 +38,15 @@ namespace BLL
             return productDAL.GetBestSellerProducts();
         }
 
-        
+        // Lấy sản phẩm theo danh mục
+        public List<Product> GetProductsByCategory(int categoryId)
+        {
+            return productDAL.GetProductsByCategory(categoryId);
+        }
+        // Lấy sản phẩm theo id
+        public Product GetProductByID(int productId)
+        {
+            return productDAL.GetProductByID(productId);
+        }
     }
 }

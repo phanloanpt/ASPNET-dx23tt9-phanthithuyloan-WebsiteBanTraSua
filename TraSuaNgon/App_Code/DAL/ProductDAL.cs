@@ -182,7 +182,41 @@ namespace DAL
             return list;
         }
 
+        // ==============================
+        // LẤY SẢN PHẨM THEO ID
+        // ==============================
+        public Product GetProductByID(int productId)
+        {
+            Product product = null;
 
+            using (SqlConnection conn = Database.GetConnection())
+            {
+                conn.Open();
+
+                string sql = @"
+            SELECT *
+            FROM Products
+            WHERE ProductID = @ProductID
+            AND Status = 1";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue(
+                    "@ProductID",
+                    productId
+                );
+
+                SqlDataReader reader =
+                    cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    product = MapProduct(reader);
+                }
+            }
+
+            return product;
+        }
 
 
         // ==============================
@@ -263,6 +297,41 @@ namespace DAL
 
 
             return product;
+        }
+        // ==============================
+        // LẤY SẢN PHẨM THEO DANH MỤC
+        // ==============================
+        public List<Product> GetProductsByCategory(int categoryId)
+        {
+            List<Product> list = new List<Product>();
+
+            using (SqlConnection conn = Database.GetConnection())
+            {
+                conn.Open();
+
+                string sql = @"
+            SELECT *
+            FROM Products
+            WHERE CategoryID = @CategoryID
+            AND Status = 1
+            ORDER BY CreatedDate DESC";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue(
+                    "@CategoryID",
+                    categoryId
+                );
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    list.Add(MapProduct(reader));
+                }
+            }
+
+            return list;
         }
     }
 }

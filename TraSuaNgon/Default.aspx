@@ -166,22 +166,25 @@
 
 
 
-<a href='ChiTietSanPham.aspx?id=<%# Eval("ProductID") %>'
-   class="btn btn-outline-primary">
+<div class="d-flex justify-content-center gap-2 mt-3">
 
-Xem chi tiết
+    <a href='ProductDetail.aspx?id=<%# Eval("ProductID") %>'
+       class="btn btn-outline-primary">
 
-</a>
+        <i class="fa-solid fa-circle-info"></i>
+        Xem chi tiết
 
+    </a>
 
+    <a href='ProductDetail.aspx?id=<%# Eval("ProductID") %>'
+       class="btn btn-danger">
 
-<button class="btn btn-danger">
+        <i class="fa-solid fa-cart-shopping"></i>
+        Đặt ngay
 
-<i class="fa fa-cart-plus"></i>
+    </a>
 
-Thêm giỏ hàng
-
-</button>
+</div>
 
 
 
@@ -282,12 +285,25 @@ NEW
 
 
 
-<a href='ChiTietSanPham.aspx?id=<%# Eval("ProductID") %>'
-class="btn btn-primary">
+<div class="d-flex justify-content-center gap-2 mt-3">
 
-Xem chi tiết
+    <a href='ProductDetail.aspx?id=<%# Eval("ProductID") %>'
+       class="btn btn-outline-primary">
 
-</a>
+        <i class="fa-solid fa-circle-info"></i>
+        Xem chi tiết
+
+    </a>
+
+    <a href='ProductDetail.aspx?id=<%# Eval("ProductID") %>'
+       class="btn btn-danger">
+
+        <i class="fa-solid fa-cart-shopping"></i>
+        Đặt ngay
+
+    </a>
+
+</div>
 
 
 
@@ -392,22 +408,25 @@ BEST SELLER
 
 
 
-<a href='ChiTietSanPham.aspx?id=<%# Eval("ProductID") %>'
-class="btn btn-primary">
+<div class="d-flex justify-content-center gap-2 mt-3">
 
-Xem chi tiết
+    <a href='ProductDetail.aspx?id=<%# Eval("ProductID") %>'
+       class="btn btn-outline-primary">
 
-</a>
+        <i class="fa-solid fa-circle-info"></i>
+        Xem chi tiết
 
+    </a>
 
+    <a href='ProductDetail.aspx?id=<%# Eval("ProductID") %>'
+       class="btn btn-danger">
 
-<button class="btn btn-danger">
+        <i class="fa-solid fa-cart-shopping"></i>
+        Đặt ngay
 
-<i class="fa fa-cart-plus"></i>
+    </a>
 
-Thêm giỏ hàng
-
-</button>
+</div>
 
 
 

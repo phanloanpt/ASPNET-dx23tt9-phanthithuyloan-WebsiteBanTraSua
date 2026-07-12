@@ -1,23 +1,57 @@
-<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Mobile.master.cs" Inherits="TraSuaNgon.Site_Mobile" %>
-<%@ Register Src="~/ViewSwitcher.ascx" TagPrefix="friendlyUrls" TagName="ViewSwitcher" %>
+using System;
+using System.Web;
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-        <h1>Mobile Master Page</h1>
-        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
-        <section class="content-wrapper main-content clear-fix">
-            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
-        </section>
-        <friendlyUrls:ViewSwitcher runat="server" />
-    </div>
-    </form>
-</body>
-</html>
+namespace TraSuaNgon
+{
+    public class Global : HttpApplication
+    {
+
+        protected void Application_Start(object sender, EventArgs e)
+        {
+            // Khởi tạo khi website chạy
+        }
+
+
+
+        protected void Session_Start(object sender, EventArgs e)
+        {
+            // Khởi tạo Session
+        }
+
+
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        protected void Application_EndRequest(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            // Xử lý lỗi toàn hệ thống nếu cần
+        }
+
+
+
+        protected void Session_End(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        protected void Application_End(object sender, EventArgs e)
+        {
+
+        }
+
+    }
+}
