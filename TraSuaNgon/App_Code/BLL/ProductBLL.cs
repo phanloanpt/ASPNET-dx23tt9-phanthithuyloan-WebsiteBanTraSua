@@ -2,51 +2,108 @@
 using Model;
 using System.Collections.Generic;
 
+
 namespace BLL
 {
     public class ProductBLL
     {
-        private ProductDAL productDAL = new ProductDAL();
 
-        // Lấy tất cả sản phẩm
+        private ProductDAL productDAL =
+            new ProductDAL();
+
+
+
+
+        // FRONTEND
+
         public List<Product> GetAllProducts()
         {
             return productDAL.GetAllProducts();
         }
 
-        // Tìm kiếm sản phẩm theo từ khóa
+
+
         public List<Product> SearchProducts(string keyword)
         {
             return productDAL.SearchProducts(keyword);
         }
 
-        // Sản phẩm nổi bật
+
+
         public List<Product> GetFeaturedProducts()
         {
             return productDAL.GetFeaturedProducts();
         }
 
-        // Sản phẩm mới
+
+
         public List<Product> GetNewProducts()
         {
             return productDAL.GetNewProducts();
         }
 
-        // Sản phẩm bán chạy
+
+
         public List<Product> GetBestSellerProducts()
         {
             return productDAL.GetBestSellerProducts();
         }
 
-        // Lấy sản phẩm theo danh mục
-        public List<Product> GetProductsByCategory(int categoryId)
+
+
+        public List<Product> GetProductsByCategory(int id)
         {
-            return productDAL.GetProductsByCategory(categoryId);
+            return productDAL.GetProductsByCategory(id);
         }
-        // Lấy sản phẩm theo id
-        public Product GetProductByID(int productId)
+
+
+
+        public Product GetProductByID(int id)
         {
-            return productDAL.GetProductByID(productId);
+            return productDAL.GetProductByID(id);
         }
+
+
+
+
+
+
+        // ADMIN CRUD
+
+
+        public List<Product> GetAllProductsAdmin()
+        {
+            return productDAL.GetAllProductsAdmin();
+        }
+
+
+
+        public Product GetProductByIDAdmin(int id)
+        {
+            return productDAL.GetProductByIDAdmin(id);
+        }
+
+
+
+        public bool AddProduct(Product product)
+        {
+            return productDAL.AddProduct(product);
+        }
+
+
+
+        public bool UpdateProduct(Product product)
+        {
+            return productDAL.UpdateProduct(product);
+        }
+
+
+
+        public bool DeleteProduct(int id)
+        {
+            return productDAL.DeleteProduct(id);
+        }
+
+
     }
 }
