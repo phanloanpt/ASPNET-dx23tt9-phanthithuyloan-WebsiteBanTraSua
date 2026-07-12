@@ -241,7 +241,7 @@ Sản phẩm
 
 <!-- Categories -->
 
-<a href="<%= ResolveUrl("~/Admin/Categories/Categories.aspx") %>">
+<a href="<%= ResolveUrl("~/Admin/Categories/CategoryList.aspx") %>">
 
 <i class="fa-solid fa-layer-group"></i>
 

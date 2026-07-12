@@ -100,6 +100,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Admin\Categories\CategoryAdd.aspx" />
+    <Content Include="Admin\Categories\CategoryEdit.aspx" />
+    <Content Include="Admin\Categories\CategoryList.aspx" />
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Admin\Orders\OrderDetail.aspx" />
     <Content Include="Admin\Orders\OrderList.aspx" />
@@ -212,6 +215,27 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Categories\CategoryAdd.aspx.cs">
+      <DependentUpon>CategoryAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Categories\CategoryAdd.aspx.designer.cs">
+      <DependentUpon>CategoryAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Categories\CategoryEdit.aspx.cs">
+      <DependentUpon>CategoryEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Categories\CategoryEdit.aspx.designer.cs">
+      <DependentUpon>CategoryEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Categories\CategoryList.aspx.cs">
+      <DependentUpon>CategoryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Categories\CategoryList.aspx.designer.cs">
+      <DependentUpon>CategoryList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -309,7 +333,6 @@
     <Compile Include="App_Code\DAL\Database.cs" />
     <Compile Include="App_Code\Helpers\DBHelper.cs" />
     <Compile Include="App_Code\Models\Category.cs" />
-    <Compile Include="App_Code\DAL\Category.cs" />
     <Compile Include="App_Code\BLL\CategoryBLL.cs" />
     <Compile Include="App_Code\DAL\CategoryDAL.cs" />
     <Compile Include="App_Code\Models\Order.cs" />
@@ -433,7 +456,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\Categories\" />
     <Folder Include="Admin\Inventory\" />
     <Folder Include="Admin\News\" />
     <Folder Include="Admin\Reports\" />
