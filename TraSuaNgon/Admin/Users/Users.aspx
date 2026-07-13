@@ -14,7 +14,7 @@
 <div class="container-fluid mt-4">
 
 
-    <!-- TITLE -->
+   
 
     <div class="d-flex justify-content-between align-items-center mb-4">
 
@@ -33,7 +33,7 @@
 
 
 
-    <!-- CARD TABLE -->
+    
 
     <div class="card shadow-sm">
 

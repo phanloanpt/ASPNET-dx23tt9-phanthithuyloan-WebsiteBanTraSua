@@ -482,8 +482,9 @@ BEST SELLER
 
                     <div class="card shadow">
 
-                        <img src='<%# ResolveUrl("~/Assets/images/news/" + Eval("ImageURL")) %>'
-                             class="img-fluid main-news-img" />
+                        <img src='<%# Eval("ImageURL") %>'
+     class="img-fluid main-news-img" />
+                            
 
                         <div class="card-body">
 
@@ -521,9 +522,9 @@ BEST SELLER
 
                 <!-- Ảnh -->
                 <div class="col-4">
-                    <img src='<%# ResolveUrl("~/Assets/images/news/" + Eval("ImageURL")) %>'
-                         class="img-fluid h-100 w-100 sub-news-img"
-                         alt="<%# Eval("Title") %>" />
+                    <img src='<%# Eval("ImageURL") %>'
+     class="img-fluid h-100 w-100 sub-news-img"
+     alt="<%# Eval("Title") %>" />
                 </div>
 
                 <!-- Nội dung -->

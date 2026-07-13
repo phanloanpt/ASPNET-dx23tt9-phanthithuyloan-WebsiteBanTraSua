@@ -326,7 +326,7 @@ Người dùng
 
 <!-- News -->
 
-<a href="<%= ResolveUrl("~/Admin/News/News.aspx") %>">
+<a href="<%= ResolveUrl("~/Admin/News/NewsList.aspx") %>">
 
 <i class="fa-solid fa-newspaper"></i>
 

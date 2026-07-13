@@ -104,6 +104,9 @@
     <Content Include="Admin\Categories\CategoryEdit.aspx" />
     <Content Include="Admin\Categories\CategoryList.aspx" />
     <Content Include="Admin\Dashboard.aspx" />
+    <Content Include="Admin\News\NewsAdd.aspx" />
+    <Content Include="Admin\News\NewsEdit.aspx" />
+    <Content Include="Admin\News\NewsList.aspx" />
     <Content Include="Admin\Orders\OrderDetail.aspx" />
     <Content Include="Admin\Orders\OrderList.aspx" />
     <Content Include="Admin\Products\ProductAdd.aspx" />
@@ -242,6 +245,27 @@
     </Compile>
     <Compile Include="Admin\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\News\NewsAdd.aspx.cs">
+      <DependentUpon>NewsAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\News\NewsAdd.aspx.designer.cs">
+      <DependentUpon>NewsAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\News\NewsEdit.aspx.cs">
+      <DependentUpon>NewsEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\News\NewsEdit.aspx.designer.cs">
+      <DependentUpon>NewsEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\News\NewsList.aspx.cs">
+      <DependentUpon>NewsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\News\NewsList.aspx.designer.cs">
+      <DependentUpon>NewsList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Orders\OrderDetail.aspx.cs">
       <DependentUpon>OrderDetail.aspx</DependentUpon>
@@ -457,7 +481,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\Inventory\" />
-    <Folder Include="Admin\News\" />
     <Folder Include="Admin\Reports\" />
     <Folder Include="App_Data\" />
     <Folder Include="Assets\css\" />

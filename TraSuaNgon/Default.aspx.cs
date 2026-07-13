@@ -34,19 +34,32 @@ namespace TraSuaNgon
         {
             var data = newsBLL.GetAllNews();
 
-            if (data != null && data.Count > 0)
+            if (data == null || data.Count == 0)
+                return;
+
+
+            // Tin chính: lấy tin nổi bật
+            var mainNews = data.FindAll(x => x.IsFeatured);
+
+            rptMainNews.DataSource = mainNews;
+            rptMainNews.DataBind();
+
+
+            // Tin phụ: lấy tin không nổi bật
+            var subNews = data.FindAll(x => !x.IsFeatured);
+
+
+            if (subNews.Count > 3)
             {
-                rptMainNews.DataSource = data.GetRange(0, 1);
-                rptMainNews.DataBind();
-
-                if (data.Count > 1)
-                {
-                    int count = Math.Min(3, data.Count - 1);
-
-                    rptSubNews.DataSource = data.GetRange(1, count);
-                    rptSubNews.DataBind();
-                }
+                subNews = subNews.GetRange(0, 3);
             }
+
+
+            rptSubNews.DataSource = subNews;
+            rptSubNews.DataBind();
+        
+
+            
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
