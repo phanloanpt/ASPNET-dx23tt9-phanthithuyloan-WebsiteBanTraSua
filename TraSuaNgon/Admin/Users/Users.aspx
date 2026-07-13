@@ -73,7 +73,7 @@
 
 
 
-                    <!-- USER ID -->
+                
 
                     <asp:BoundField
 
@@ -87,7 +87,6 @@
 
 
 
-                    <!-- NAME -->
 
                     <asp:BoundField
 
@@ -101,7 +100,7 @@
 
 
 
-                    <!-- EMAIL -->
+                   
 
                     <asp:BoundField
 
@@ -115,7 +114,6 @@
 
 
 
-                    <!-- PHONE -->
 
                     <asp:BoundField
 
@@ -129,7 +127,7 @@
 
 
 
-                    <!-- ROLE -->
+                   
 
                     <asp:BoundField
 
@@ -140,10 +138,17 @@
 
 
 
+                    <asp:BoundField
+
+DataField="CreatedDate"
+
+HeaderText="Ngày tạo"
+
+DataFormatString="{0:dd/MM/yyyy}" />
 
 
 
-                    <!-- STATUS -->
+                  
 
                     <asp:TemplateField
 
@@ -178,7 +183,7 @@
 
 
 
-                    <!-- ACTION -->
+                
 
                     <asp:TemplateField
 

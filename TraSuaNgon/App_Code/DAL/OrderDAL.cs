@@ -546,6 +546,7 @@ namespace DAL
         }
         public List<OrderDetail> GetOrderDetails(int orderID)
         {
+
             List<OrderDetail> list =
                 new List<OrderDetail>();
 
@@ -554,20 +555,57 @@ namespace DAL
             {
 
                 string sql = @"
-            SELECT 
-                od.*,
-                p.ProductName
 
-            FROM OrderDetails od
+        SELECT
+            od.OrderDetailID,
+            od.OrderID,
+            od.ProductID,
+            od.Quantity,
+            od.Size,
+            od.UnitPrice,
+            od.SubTotal,
 
-            INNER JOIN Products p
-            ON od.ProductID = p.ProductID
+            p.ProductName,
 
-            WHERE od.OrderID = @OrderID";
+            STRING_AGG(t.ToppingName, ', ') 
+            AS ToppingName
+
+
+        FROM OrderDetails od
+
+
+        INNER JOIN Products p
+        ON od.ProductID = p.ProductID
+
+
+        LEFT JOIN OrderDetailToppings odt
+        ON od.OrderDetailID = odt.OrderDetailID
+
+
+        LEFT JOIN Toppings t
+        ON odt.ToppingID = t.ToppingID
+
+
+        WHERE od.OrderID=@OrderID
+
+
+        GROUP BY
+            od.OrderDetailID,
+            od.OrderID,
+            od.ProductID,
+            od.Quantity,
+            od.Size,
+            od.UnitPrice,
+            od.SubTotal,
+            p.ProductName
+
+        ";
+
 
 
                 SqlCommand cmd =
                     new SqlCommand(sql, conn);
+
 
 
                 cmd.Parameters.AddWithValue(
@@ -575,18 +613,23 @@ namespace DAL
                     orderID);
 
 
+
                 conn.Open();
+
 
 
                 SqlDataReader reader =
                     cmd.ExecuteReader();
 
 
+
                 while (reader.Read())
                 {
 
+
                     OrderDetail detail =
                         new OrderDetail();
+
 
 
                     detail.OrderDetailID =
@@ -594,9 +637,11 @@ namespace DAL
                             reader["OrderDetailID"]);
 
 
+
                     detail.OrderID =
                         Convert.ToInt32(
                             reader["OrderID"]);
+
 
 
                     detail.ProductID =
@@ -604,13 +649,22 @@ namespace DAL
                             reader["ProductID"]);
 
 
-                    detail.Size =
-                        reader["Size"].ToString();
-
 
                     detail.Quantity =
                         Convert.ToInt32(
                             reader["Quantity"]);
+
+
+
+                    detail.Size =
+                        reader["Size"].ToString();
+
+
+
+                    detail.UnitPrice =
+                        Convert.ToDecimal(
+                            reader["UnitPrice"]);
+
 
 
                     detail.SubTotal =
@@ -618,18 +672,33 @@ namespace DAL
                             reader["SubTotal"]);
 
 
+
                     detail.ProductName =
                         reader["ProductName"].ToString();
 
 
+
+                    detail.ToppingName =
+                        reader["ToppingName"] == DBNull.Value
+                        ?
+                        ""
+                        :
+                        reader["ToppingName"].ToString();
+
+
+
                     list.Add(detail);
 
+
                 }
+
 
             }
 
 
+
             return list;
+
         }
 
 

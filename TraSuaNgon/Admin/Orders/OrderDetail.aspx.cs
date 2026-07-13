@@ -24,16 +24,10 @@ namespace TraSuaNgon.Admin.Orders
 
 
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(
+            object sender,
+            EventArgs e)
         {
-
-            if (Session["Role"] == null ||
-                Session["Role"].ToString() != "Admin")
-            {
-                Response.Redirect("~/Login.aspx");
-                return;
-            }
-
 
             if (!IsPostBack)
             {
@@ -41,7 +35,6 @@ namespace TraSuaNgon.Admin.Orders
             }
 
         }
-
 
 
 
@@ -94,8 +87,14 @@ namespace TraSuaNgon.Admin.Orders
 
 
 
-            gvDetail.DataSource =
+
+            var detailList =
                 orderBLL.GetOrderDetails(OrderID);
+
+
+
+            gvDetail.DataSource =
+                detailList;
 
 
             gvDetail.DataBind();
@@ -111,15 +110,13 @@ namespace TraSuaNgon.Admin.Orders
             EventArgs e)
         {
 
-
             orderBLL.UpdateStatus(
                 OrderID,
                 ddlStatus.SelectedValue);
 
 
-
-            Response.Redirect(
-                "OrderDetail.aspx?id=" + OrderID);
+            // load lại dữ liệu thay vì redirect
+            LoadOrder();
 
         }
 

@@ -302,6 +302,14 @@ namespace TraSuaNgon
                     int orderDetailID =
                         orderBLL.AddOrderDetail(detail);
 
+                    Response.Write(
+    "ProductID: " + detail.ProductID +
+    "<br/>OrderID: " + detail.OrderID +
+    "<br/>OrderDetailID: " + orderDetailID
+);
+
+                    Response.End();
+
 
 
 

@@ -105,8 +105,14 @@ HeaderText="Số lượng" />
 
 
 <asp:BoundField
-DataField="Price"
-HeaderText="Giá" />
+DataField="UnitPrice"
+HeaderText="Đơn giá"
+DataFormatString="{0:N0} đ" />
+
+<asp:BoundField
+DataField="SubTotal"
+HeaderText="Thành tiền"
+DataFormatString="{0:N0} đ" />
 
 
 
@@ -139,24 +145,24 @@ runat="server"
 CssClass="form-control">
 
 
-<asp:ListItem>
-Chờ xác nhận
-</asp:ListItem>
+<asp:ListItem Text="Chờ xác nhận"
+Value="Chờ xác nhận" />
 
 
-<asp:ListItem>
-Đang giao
-</asp:ListItem>
+<asp:ListItem Text="Đang pha chế"
+Value="Đang pha chế" />
 
 
-<asp:ListItem>
-Hoàn thành
-</asp:ListItem>
+<asp:ListItem Text="Đang giao"
+Value="Đang giao" />
 
 
-<asp:ListItem>
-Đã hủy
-</asp:ListItem>
+<asp:ListItem Text="Hoàn thành"
+Value="Hoàn thành" />
+
+
+<asp:ListItem Text="Đã hủy"
+Value="Đã hủy" />
 
 
 </asp:DropDownList>
