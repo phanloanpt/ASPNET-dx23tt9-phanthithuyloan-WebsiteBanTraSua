@@ -110,7 +110,7 @@
     <Content Include="Admin\Products\ProductDelete.aspx" />
     <Content Include="Admin\Products\ProductEdit.aspx" />
     <Content Include="Admin\Products\ProductList.aspx" />
-    <Content Include="Admin\Toppings\ToppingCreate.aspx" />
+    <Content Include="Admin\Toppings\ToppingAdd.aspx" />
     <Content Include="Admin\Toppings\ToppingEdit.aspx" />
     <Content Include="Admin\Toppings\ToppingList.aspx" />
     <Content Include="Admin\Users\Users.aspx" />
@@ -292,12 +292,12 @@
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Toppings\ToppingCreate.aspx.cs">
-      <DependentUpon>ToppingCreate.aspx</DependentUpon>
+    <Compile Include="Admin\Toppings\ToppingAdd.aspx.cs">
+      <DependentUpon>ToppingAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Toppings\ToppingCreate.aspx.designer.cs">
-      <DependentUpon>ToppingCreate.aspx</DependentUpon>
+    <Compile Include="Admin\Toppings\ToppingAdd.aspx.designer.cs">
+      <DependentUpon>ToppingAdd.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Toppings\ToppingEdit.aspx.cs">
       <DependentUpon>ToppingEdit.aspx</DependentUpon>

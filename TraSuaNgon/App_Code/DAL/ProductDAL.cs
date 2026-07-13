@@ -216,31 +216,54 @@ namespace DAL
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
+        // Tìm kiếm sản phẩm
         public List<Product> SearchProducts(string keyword)
         {
-            // viết sau
-            return new List<Product>();
+            List<Product> list = GetAllProducts();
+
+            return list.FindAll(x =>
+                x.ProductName.ToLower().Contains(keyword.ToLower())
+                && x.Status);
         }
 
+        // Sản phẩm nổi bật
         public List<Product> GetFeaturedProducts()
         {
-            // viết sau
-            return new List<Product>();
+            List<Product> list = GetAllProducts();
+
+            return list.FindAll(x =>
+                x.IsFeatured == true &&
+                x.Status == true);
         }
 
+        // Sản phẩm mới
         public List<Product> GetNewProducts()
         {
-            return new List<Product>();
+            List<Product> list = GetAllProducts();
+
+            return list.FindAll(x =>
+                x.IsNew == true &&
+                x.Status == true);
         }
 
+        // Best Seller
         public List<Product> GetBestSellerProducts()
         {
-            return new List<Product>();
+            List<Product> list = GetAllProducts();
+
+            return list.FindAll(x =>
+                x.IsBestSeller == true &&
+                x.Status == true);
         }
 
+        // Lọc theo danh mục
         public List<Product> GetProductsByCategory(int id)
         {
-            return new List<Product>();
+            List<Product> list = GetAllProducts();
+
+            return list.FindAll(x =>
+                x.CategoryID == id &&
+                x.Status == true);
         }
     }
 }

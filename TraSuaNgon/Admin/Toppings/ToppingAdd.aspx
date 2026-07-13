@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ToppingCreate.aspx.cs" Inherits="TraSuaNgon.Admin.Toppings.ToppingCreate" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ToppingAdd.aspx.cs" Inherits="TraSuaNgon.Admin.Toppings.ToppingCreate" %>
 
 <!DOCTYPE html>
 
