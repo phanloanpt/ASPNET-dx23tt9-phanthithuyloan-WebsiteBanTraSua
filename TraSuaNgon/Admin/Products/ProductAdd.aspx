@@ -1,15 +1,13 @@
-﻿<%@ Page Title="Sửa sản phẩm"
-Language="C#"
-MasterPageFile="~/Admin/Admin.Master"
-AutoEventWireup="true"
-CodeBehind="ProductEdit.aspx.cs"
-Inherits="TraSuaNgon.Admin.Products.ProductEdit" %>
+﻿<%@ Page Title="Thêm sản phẩm"
+    Language="C#"
+    MasterPageFile="~/Admin/Admin.Master"
+    AutoEventWireup="true"
+    CodeBehind="ProductAdd.aspx.cs"
+    Inherits="TraSuaNgon.Admin.Products.ProductAdd" %>
 
-<asp:Content ID="Content1"
-ContentPlaceHolderID="MainContent"
-runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-<h2>Sửa sản phẩm</h2>
+    <h2>Thêm sản phẩm</h2>
 
     <div class="mb-3">
         Danh mục
@@ -31,12 +29,13 @@ runat="server">
             CssClass="form-control"></asp:TextBox>
     </div>
 
-    <div class="mb-3">
-        Ảnh
-        <asp:TextBox ID="txtImage"
-            runat="server"
-            CssClass="form-control"></asp:TextBox>
-    </div>
+   <div class="mb-3">
+    <label class="form-label">Hình ảnh sản phẩm</label>
+
+    <asp:FileUpload ID="fuImage"
+        runat="server"
+        CssClass="form-control" />
+</div>
 
     <div class="mb-3">
         Giá M

@@ -224,7 +224,7 @@ Dashboard
 
 <!-- Products -->
 
-<a href="<%= ResolveUrl("~/Admin/Products/Products.aspx") %>">
+<a href="<%= ResolveUrl("~/Admin/Products/ProductList.aspx") %>">
 
 <i class="fa-solid fa-mug-saucer"></i>
 

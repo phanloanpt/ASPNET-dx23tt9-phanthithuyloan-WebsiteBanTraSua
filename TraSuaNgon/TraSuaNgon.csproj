@@ -106,7 +106,7 @@
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Admin\Orders\OrderDetail.aspx" />
     <Content Include="Admin\Orders\OrderList.aspx" />
-    <Content Include="Admin\Products\ProductCreate.aspx" />
+    <Content Include="Admin\Products\ProductAdd.aspx" />
     <Content Include="Admin\Products\ProductDelete.aspx" />
     <Content Include="Admin\Products\ProductEdit.aspx" />
     <Content Include="Admin\Products\ProductList.aspx" />
@@ -257,12 +257,12 @@
     <Compile Include="Admin\Orders\OrderList.aspx.designer.cs">
       <DependentUpon>OrderList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Products\ProductCreate.aspx.cs">
-      <DependentUpon>ProductCreate.aspx</DependentUpon>
+    <Compile Include="Admin\Products\ProductAdd.aspx.cs">
+      <DependentUpon>ProductAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Products\ProductCreate.aspx.designer.cs">
-      <DependentUpon>ProductCreate.aspx</DependentUpon>
+    <Compile Include="Admin\Products\ProductAdd.aspx.designer.cs">
+      <DependentUpon>ProductAdd.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Products\ProductDelete.aspx.cs">
       <DependentUpon>ProductDelete.aspx</DependentUpon>

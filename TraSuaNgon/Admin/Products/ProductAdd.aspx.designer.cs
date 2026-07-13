@@ -11,7 +11,7 @@ namespace TraSuaNgon.Admin.Products
 {
 
 
-    public partial class ProductEdit
+    public partial class ProductAdd
     {
 
         /// <summary>
@@ -42,13 +42,13 @@ namespace TraSuaNgon.Admin.Products
         protected global::System.Web.UI.WebControls.TextBox txtDescription;
 
         /// <summary>
-        /// txtImage control.
+        /// fuImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtImage;
+        protected global::System.Web.UI.WebControls.FileUpload fuImage;
 
         /// <summary>
         /// txtPriceM control.

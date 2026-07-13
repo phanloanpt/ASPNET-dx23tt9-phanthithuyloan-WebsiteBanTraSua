@@ -1,29 +1,19 @@
-﻿using BLL;
+﻿using System;
+using BLL;
 using Model;
-using System;
-using System.Xml.Linq;
 
 namespace TraSuaNgon.Admin.Products
 {
-    public partial class ProductEdit : System.Web.UI.Page
+    public partial class ProductAdd : System.Web.UI.Page
     {
         ProductBLL productBLL = new ProductBLL();
         CategoryBLL categoryBLL = new CategoryBLL();
 
-        int productID;
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!int.TryParse(Request.QueryString["id"], out productID))
-            {
-                Response.Redirect("ProductList.aspx");
-                return;
-            }
-
             if (!IsPostBack)
             {
                 LoadCategories();
-                LoadProduct();
             }
         }
 
@@ -35,41 +25,28 @@ namespace TraSuaNgon.Admin.Products
             ddlCategory.DataBind();
         }
 
-        private void LoadProduct()
-        {
-            Product p = productBLL.GetProductByIDAdmin(productID);
-
-            if (p == null)
-            {
-                Response.Redirect("ProductList.aspx");
-                return;
-            }
-
-            ddlCategory.SelectedValue = p.CategoryID.ToString();
-
-            txtName.Text = p.ProductName;
-            txtDescription.Text = p.Description;
-            txtImage.Text = p.ImageURL;
-
-            txtPriceM.Text = p.PriceM.ToString();
-            txtPriceL.Text = p.PriceL.ToString();
-
-            chkFeatured.Checked = p.IsFeatured;
-            chkNew.Checked = p.IsNew;
-            chkBestSeller.Checked = p.IsBestSeller;
-            chkStatus.Checked = p.Status;
-        }
-
         protected void btnSave_Click(object sender, EventArgs e)
         {
             Product p = new Product();
 
-            p.ProductID = productID;
             p.CategoryID = Convert.ToInt32(ddlCategory.SelectedValue);
-
             p.ProductName = txtName.Text.Trim();
             p.Description = txtDescription.Text.Trim();
-            p.ImageURL = txtImage.Text.Trim();
+
+            // Upload ảnh
+            string fileName = "";
+
+            if (fuImage.HasFile)
+            {
+                fileName = fuImage.FileName;
+
+                string savePath = Server.MapPath(
+                    "~/Assets/images/products/" + fileName);
+
+                fuImage.SaveAs(savePath);
+            }
+
+            p.ImageURL = fileName;
 
             p.PriceM = decimal.Parse(txtPriceM.Text);
             p.PriceL = decimal.Parse(txtPriceL.Text);
@@ -79,7 +56,9 @@ namespace TraSuaNgon.Admin.Products
             p.IsBestSeller = chkBestSeller.Checked;
             p.Status = chkStatus.Checked;
 
-            if (productBLL.UpdateProduct(p))
+            p.CreatedDate = DateTime.Now;
+
+            if (productBLL.AddProduct(p))
             {
                 Response.Redirect("ProductList.aspx");
             }

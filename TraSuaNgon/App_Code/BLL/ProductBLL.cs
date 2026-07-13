@@ -71,33 +71,27 @@ namespace BLL
         // ADMIN CRUD
 
 
+        // ADMIN CRUD
+
         public List<Product> GetAllProductsAdmin()
         {
-            return productDAL.GetAllProductsAdmin();
+            return productDAL.GetAllProducts();
         }
-
-
 
         public Product GetProductByIDAdmin(int id)
         {
-            return productDAL.GetProductByIDAdmin(id);
+            return productDAL.GetProductByID(id);
         }
-
-
 
         public bool AddProduct(Product product)
         {
-            return productDAL.AddProduct(product);
+            return productDAL.InsertProduct(product);
         }
-
-
 
         public bool UpdateProduct(Product product)
         {
             return productDAL.UpdateProduct(product);
         }
-
-
 
         public bool DeleteProduct(int id)
         {
