@@ -177,20 +177,25 @@
 
 
 
-
-                            <div class="d-flex justify-content-center gap-2 mt-3">
+<div class="d-flex justify-content-center gap-2 mt-3">
 
     <a href='ProductDetail.aspx?id=<%# Eval("ProductID") %>'
         class="btn btn-outline-primary btn-sm">
+
         <i class="fa fa-info-circle"></i>
         Xem chi tiết
+
     </a>
 
-    <a href='Cart.aspx?add=<%# Eval("ProductID") %>'
+
+    <a href='ProductDetail.aspx?id=<%# Eval("ProductID") %>'
         class="btn btn-danger btn-sm">
+
         <i class="fa fa-shopping-cart"></i>
         Đặt ngay
+
     </a>
+
 
 </div>
 

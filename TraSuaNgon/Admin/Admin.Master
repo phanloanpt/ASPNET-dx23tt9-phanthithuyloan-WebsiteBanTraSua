@@ -258,7 +258,7 @@ Danh mục
 
 <!-- Topping -->
 
-<a href="<%= ResolveUrl("~/Admin/Toppings/Toppings.aspx") %>">
+<a href="<%= ResolveUrl("~/Admin/Toppings/ToppingList.aspx") %>">
 
 <i class="fa-solid fa-circle-plus"></i>
 
@@ -360,9 +360,16 @@ Báo cáo
 
 <hr class="text-light"/>
 
+<!-- xem web -->
 
+<a href="<%= ResolveUrl("~/Default.aspx") %>"
+   target="_blank">
 
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
 
+    Xem website
+
+</a>
 
 
 

@@ -1,15 +1,59 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ToppingEdit.aspx.cs" Inherits="TraSuaNgon.Admin.Toppings.ToppingEdit" %>
+﻿<%@ Page Title="Sửa topping"
+    Language="C#"
+    MasterPageFile="~/Admin/Admin.Master"
+    AutoEventWireup="true"
+    CodeBehind="ToppingEdit.aspx.cs"
+    Inherits="TraSuaNgon.Admin.Toppings.ToppingEdit" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1"
+    ContentPlaceHolderID="MainContent"
+    runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
-</body>
-</html>
+<div class="container mt-4">
+
+    <h2>Sửa topping</h2>
+
+    <div class="mb-3">
+        <label>Tên topping</label>
+        <asp:TextBox ID="txtName"
+            runat="server"
+            CssClass="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Giá</label>
+        <asp:TextBox ID="txtPrice"
+            runat="server"
+            CssClass="form-control" />
+    </div>
+
+    <asp:Image
+    ID="imgPreview"
+    runat="server"
+    Width="100"
+    Height="100" />
+
+<br /><br />
+
+<asp:FileUpload
+    ID="fuImage"
+    runat="server"
+    CssClass="form-control" />
+
+    <div class="mb-3">
+        <asp:CheckBox
+            ID="chkStatus"
+            runat="server"
+            Text="Hoạt động" />
+    </div>
+
+    <asp:Button
+        ID="btnSave"
+        runat="server"
+        Text="Cập nhật"
+        CssClass="btn btn-primary"
+        OnClick="btnSave_Click" />
+
+</div>
+
+</asp:Content>
