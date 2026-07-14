@@ -1,49 +1,48 @@
 ﻿using System;
+using BLL;
+using Model;
 
 namespace TraSuaNgon
 {
     public partial class LienHe : System.Web.UI.Page
     {
+        private ContactBLL contactBLL = new ContactBLL();
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void btnSend_Click(
-            object sender,
-            EventArgs e)
+        protected void btnSend_Click(object sender, EventArgs e)
         {
-            string name = txtName.Text.Trim();
-            string email = txtEmail.Text.Trim();
-            string phone = txtPhone.Text.Trim();
-            string message = txtMessage.Text.Trim();
+            ContactMessage contact = new ContactMessage();
 
+            contact.FullName = txtName.Text.Trim();
+            contact.Email = txtEmail.Text.Trim();
+            contact.Phone = txtPhone.Text.Trim();
 
-            if (name == "" || email == "" || message == "")
+            // Form hiện tại không có ô Subject
+            contact.Subject = "Liên hệ từ website";
+
+            contact.Message = txtMessage.Text.Trim();
+            contact.CreatedDate = DateTime.Now;
+            contact.IsRead = false;
+
+            bool result = contactBLL.InsertMessage(contact);
+
+            if (result)
             {
-                lblMessage.Text =
-                    "Vui lòng nhập đầy đủ thông tin.";
+                lblMessage.Text = "Gửi liên hệ thành công!";
 
-                lblMessage.CssClass =
-                    "d-block text-danger fw-bold mt-2";
-
-                return;
+                txtName.Text = "";
+                txtEmail.Text = "";
+                txtPhone.Text = "";
+                txtMessage.Text = "";
             }
-
-
-            lblMessage.Text =
-    "Cảm ơn bạn! Trà Sữa NGON sẽ phản hồi sớm nhất.";
-
-            lblMessage.CssClass =
-    "alert alert-success text-center mt-3";
-
-
-            txtName.Text = "";
-            txtEmail.Text = "";
-            txtPhone.Text = "";
-            txtMessage.Text = "";
+            else
+            {
+                lblMessage.Text = "Gửi liên hệ thất bại!";
+            }
         }
-
     }
 }

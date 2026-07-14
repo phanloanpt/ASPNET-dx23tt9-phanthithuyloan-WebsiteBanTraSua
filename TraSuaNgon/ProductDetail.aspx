@@ -266,7 +266,9 @@ onclick="decreaseQty()">
 <asp:TextBox ID="txtQuantity"
     runat="server"
     CssClass="form-control text-center"
-    Text="1">
+    Text="1"
+    AutoPostBack="true"
+    OnTextChanged="CalculateTotal">
 </asp:TextBox>
 
 
@@ -393,18 +395,17 @@ class="btn btn-outline-secondary btn-lg">
 
 <Triggers>
 
+    <asp:AsyncPostBackTrigger
+        ControlID="rblSize"
+        EventName="SelectedIndexChanged" />
 
-<asp:AsyncPostBackTrigger
-    ControlID="rblSize"
-    EventName="SelectedIndexChanged" />
+    <asp:AsyncPostBackTrigger
+        ControlID="cblToppings"
+        EventName="SelectedIndexChanged" />
 
-
-
-<asp:AsyncPostBackTrigger
-    ControlID="cblToppings"
-    EventName="SelectedIndexChanged" />
-
-
+    <asp:AsyncPostBackTrigger
+        ControlID="txtQuantity"
+        EventName="TextChanged" />
 
 </Triggers>
 
@@ -422,58 +423,32 @@ class="btn btn-outline-secondary btn-lg">
 <script>
 
 
-    function increaseQty() {
-
-        var qty =
-            document.getElementById(
-    '<%=txtQuantity.ClientID%>'
-    );
-
-
-    var value =
-    parseInt(qty.value);
-
-
-    value++;
-
-
-    qty.value=value;
-
-
-}
-
-
-
-
-
-
-
-function decreaseQty()
-{
+function increaseQty() {
 
     var qty =
-    document.getElementById(
-    '<%=txtQuantity.ClientID%>'
-    );
+        document.getElementById(
+            '<%=txtQuantity.ClientID%>');
 
+    qty.value = parseInt(qty.value) + 1;
 
-        var value =
-            parseInt(qty.value);
+    __doPostBack('<%= txtQuantity.UniqueID %>', '');
+}
 
+function decreaseQty() {
 
+    var qty =
+        document.getElementById(
+            '<%=txtQuantity.ClientID%>');
 
-        if (value > 1) {
+    var value = parseInt(qty.value);
 
-            value--;
+    if (value > 1)
+        value--;
 
-        }
+    qty.value = value;
 
-
-        qty.value = value;
-
-
-    }
-
+    __doPostBack('<%= txtQuantity.UniqueID %>', '');
+}
 
 
 </script>

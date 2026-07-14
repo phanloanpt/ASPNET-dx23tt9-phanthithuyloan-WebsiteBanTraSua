@@ -2,23 +2,6 @@
    LAYOUT CHUNG
 ========================================== */
 
-.body-content {
-    margin-top: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-input,
-select,
-textarea {
-    max-width: 280px;
-}
-
-@media screen and (min-width: 768px) {
-    .body-content {
-        padding: 0;
-    }
-}
 .section-divider {
     border: 0;
     height: 2px;
@@ -40,25 +23,15 @@ textarea {
         border-radius: 15px;
     }
 
-    #mainCarousel .carousel-item {
+    #mainCarousel .carousel-item,
+    #mainCarousel .carousel-item img,
+    .banner-img {
+        width: 100%;
         height: 500px;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
     }
-
-        #mainCarousel .carousel-item img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            object-position: center center;
-            display: block;
-        }
-
-.banner-img {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    object-position: center center;
-    display: block;
-}
 
 /* ==========================================
    TIÊU ĐỀ
@@ -70,8 +43,6 @@ textarea {
     margin-top: 30px;
     margin-bottom: 25px;
 }
-
-/* ===== TIÊU ĐỀ CÁC SECTION ===== */
 
 .title-featured {
     color: #e91e63;
@@ -100,6 +71,7 @@ textarea {
 .section-icon {
     margin-right: 10px;
 }
+
 /* ==========================================
    CARD SẢN PHẨM
 ========================================== */
@@ -153,6 +125,10 @@ textarea {
         background: #c2185b;
     }
 
+/* ==========================================
+   NEWS
+========================================== */
+
 .sub-news-card {
     min-height: 170px;
 }
@@ -171,35 +147,31 @@ textarea {
 .sub-news-card .card-body {
     padding: 10px;
 }
+
+/* ==========================================
+   SEARCH BOX
+========================================== */
+
 .search-box {
     background: #fff;
     padding: 20px;
     border-radius: 15px;
 }
 
-    .search-box input {
-        border-radius: 10px;
-    }
-
+    .search-box input,
     .search-box .btn {
         border-radius: 10px;
     }
 
-.product-img {
-    width: 100%;
-    height: 250px;
-    object-fit: contain;
-    padding: 10px;
-    background: #fff;
-}
-.footer-ngon {
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
-    color: white;
-}
+/* ==========================================
+   FOOTER
+   Nếu footer đã style trong Site.Master
+   thì có thể xóa toàn bộ phần này
+========================================== */
 
-.footer-logo {
-    width: 90px;
-    height: auto;
+.footer-ngon {
+    background: linear-gradient(135deg, #5A3825, #70482f);
+    color: white;
 }
 
 .footer-links li {
@@ -209,7 +181,7 @@ textarea {
 .footer-links a {
     color: white;
     text-decoration: none;
-    transition: 0.3s;
+    transition: .3s;
 }
 
     .footer-links a:hover {
@@ -225,11 +197,11 @@ textarea {
     height: 45px;
     margin-right: 10px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,.2);
     color: white;
     font-size: 20px;
     text-decoration: none;
-    transition: 0.3s;
+    transition: .3s;
 }
 
     .social-icons a:hover {
@@ -237,50 +209,10 @@ textarea {
         color: #ff5c8a;
         transform: translateY(-3px);
     }
-.footer-logo {
-    width: auto;
-    height: 45px;
-    object-fit: contain;
-}
 
-@media (max-width: 992px) {
-    .product-img {
-        height: 220px;
-    }
-}
-
-@media (max-width: 768px) {
-    .product-img {
-        height: 180px;
-        padding: 8px;
-    }
-}
-
-@media (max-width: 576px) {
-    .product-img {
-        height: 160px;
-        padding: 5px;
-    }
-}
 /* ==========================================
-   MOBILE
-========================================== */
-
-@media (max-width: 576px) {
-
-    #mainCarousel .carousel-item,
-    #mainCarousel .carousel-item img,
-    .banner-img {
-        height: 220px;
-    }
-
-    .product-img {
-        height: 220px;
-    }
-}
-/* =========================
    PRODUCT DETAIL
-========================= */
+========================================== */
 
 .product-detail-img {
     max-height: 450px;
@@ -295,65 +227,44 @@ textarea {
 }
 
 .size-list label {
+    margin-left: 8px;
     margin-right: 25px;
     font-weight: 600;
-}
-
-.topping-list input {
-    margin-right: 10px;
-}
-
-.topping-list label {
-    margin-bottom: 12px;
-    display: block;
-}
-
-@media(max-width:768px) {
-    .product-detail-img {
-        max-height: 300px;
-    }
-}
-/* =========================
-   PRODUCT DETAIL SIZE
-========================= */
-
-.size-list label {
-    margin-left: 8px;
     cursor: pointer;
 }
-
 
 .size-list input[type="radio"] {
     margin-right: 10px;
     transform: scale(1.15);
 }
 
-
-
-
-
-/* =========================
-   TOPPING CHECKBOX
-========================= */
-
+/* ==========================================
+   TOPPING
+========================================== */
 
 .topping-list {
     width: 100%;
 }
 
-.topping-list td {
-    width: 50%;
-    padding: 10px 0;
-    vertical-align: middle;
-}
+    .topping-list td {
+        width: 50%;
+        padding: 10px 0;
+        vertical-align: middle;
+    }
 
-.topping-list input[type="checkbox"] {
-    margin-right: 8px;
-}
+    .topping-list input {
+        margin-right: 8px;
+    }
 
-.topping-list label {
-    margin-bottom: 0;
-}
+    .topping-list label {
+        display: block;
+        margin-bottom: 0;
+    }
+
+/* ==========================================
+   CART
+========================================== */
+
 .cart-badge {
     background: #ff4081;
     color: white;
@@ -368,4 +279,39 @@ textarea {
     position: relative;
     top: -10px;
     left: -5px;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 992px) {
+    .product-img {
+        height: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-img {
+        height: 180px;
+        padding: 8px;
+    }
+
+    .product-detail-img {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    #mainCarousel .carousel-item,
+    #mainCarousel .carousel-item img,
+    .banner-img {
+        height: 220px;
+    }
+
+    .product-img {
+        height: 220px;
+        padding: 5px;
+    }
 }

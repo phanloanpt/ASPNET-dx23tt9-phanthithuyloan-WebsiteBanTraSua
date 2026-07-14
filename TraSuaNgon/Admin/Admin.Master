@@ -335,7 +335,15 @@ Tin tức
 </a>
 
 
+<!-- Contact -->
 
+<a href="<%= ResolveUrl("~/Admin/Contact/ContactList.aspx") %>">
+
+<i class="fa-solid fa-envelope"></i>
+
+Liên hệ khách hàng
+
+</a>
 
 
 

@@ -62,14 +62,18 @@
 /* BODY */
 
 
-body {
+body
+{
+    background:#efefef;
+}
 
-    font-family:'Segoe UI',sans-serif;
-
-    background:var(--cream);
-
-    color:var(--brown);
-
+.page-content {
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.06);
 }
 
 
@@ -267,16 +271,24 @@ body {
 
 
 .footer-ngon {
+    background: linear-gradient(
+        135deg,
+        #5A3825,
+        #70482f
+    );
 
-
-    width:100%;
-
-    background:var(--brown);
-
-    color:white;
-
-
+    color: white;
 }
+    .footer-divider{
+    border:0;
+    border-top:1px solid rgba(255,255,255,.15);
+    width:100vw;
+    margin:30px 0 0;
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+}
+
 
 /* SOCIAL FOOTER */
 
@@ -329,6 +341,7 @@ body {
 
 
 }
+
 
 
 </style>
@@ -704,14 +717,16 @@ Liên hệ
 
 
 
-<%-- NỘI DUNG CÁC TRANG --%>
+<%-- NỘI DUNG CÁC TRANG content --%>
 
 
-<asp:ContentPlaceHolder ID="MainContent"
-    runat="server">
+<div class="page-content">
 
+    <asp:ContentPlaceHolder
+        ID="MainContent"
+        runat="server" />
 
-</asp:ContentPlaceHolder>
+</div>
 
 
 <%-- FOOTER --%>
@@ -801,7 +816,10 @@ trasuangon@gmail.com
 
 </p>
 
-
+<p>
+    <i class="fa-solid fa-clock"></i>
+    08:00 - 22:00 | Thứ 2 - Chủ nhật
+</p>
 
 
 </div>
@@ -848,7 +866,16 @@ Menu
 </li>
 
 
+<li class="mb-2">
+    <a href="TinTuc.aspx"
+       class="text-white text-decoration-none">
 
+        <i class="fa-solid fa-newspaper logo1 px-1"></i>
+
+        Tin tức
+
+    </a>
+</li>
 
 
 <li class="mb-2">
@@ -949,11 +976,11 @@ Nhận ưu đãi
 
 
 
-<button class="btn btn-danger">
-
-Đăng ký
-
-</button>
+<asp:Button ID="btnSubscribe"
+    runat="server"
+    Text="Đăng ký"
+    CssClass="btn btn-danger"
+    UseSubmitBehavior="false" />
 
 
 </div>
@@ -962,7 +989,7 @@ Nhận ưu đãi
 
 
 
-<div class="mt-4">
+<div class=" social-footer mt-4">
 
 
 <div class="social-footer mt-4">
@@ -993,43 +1020,49 @@ Nhận ưu đãi
 
 </a>
 
-
-</div>
-
-
-</div>
+</div></div>
 
 
 
-</div>
+    <div>
+<p class="mt-3 small text-light">
+    Theo dõi chúng tôi để nhận ưu đãi và cập nhật món mới mỗi tuần.
+</p></div>
 
-
-
-
-
+    
 </div>
 
 
 
 
 
-<hr class="border-light" />
-
-
-
-
-
-<div class="text-center">
-
-
-© 2026 Trà Sữa NGON - Phan Thị Thùy Loan
-
 
 </div>
 
 
 
+
+
+
+
+<hr class="footer-divider" />
+
+<div class="container mt-3">
+    <div class="text-center small">
+    © 2026 Trà Sữa NGON | Đồ án môn học ASP.NET Web Forms
+    <br />
+    Phát triển bởi Phan Thị Thùy Loan
 </div>
+    
+</div>
+
+
+
+
+    
+</div>
+
+
 
 
 </footer>

@@ -12,6 +12,19 @@
 
 
 <!-- ================= CAROUSEL ================= -->
+   <style> #mainCarousel
+{
+    width:100vw;
+    margin-left:calc(50% - 50vw);
+    margin-top:-40px;
+}
+
+.banner-img
+{
+    height:650px;
+    object-fit:cover;
+}
+       </style>
 
 <div id="mainCarousel" 
      class="carousel slide" 
