@@ -292,11 +292,11 @@ Topping
 
 <!-- Inventory -->
 
-<a href="<%= ResolveUrl("~/Admin/Inventory/Inventory.aspx") %>">
+<a href="<%= ResolveUrl("~/Admin/Inventory/InventoryList.aspx") %>">
 
 <i class="fa-solid fa-box"></i>
 
-Kho nguyên liệu
+Kho vật tư
 
 </a>
 

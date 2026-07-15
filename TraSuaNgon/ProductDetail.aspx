@@ -423,10 +423,10 @@ class="btn btn-outline-secondary btn-lg">
 <script>
 
 
-function increaseQty() {
+    function increaseQty() {
 
-    var qty =
-        document.getElementById(
+        var qty =
+            document.getElementById(
             '<%=txtQuantity.ClientID%>');
 
     qty.value = parseInt(qty.value) + 1;
@@ -448,7 +448,7 @@ function decreaseQty() {
     qty.value = value;
 
     __doPostBack('<%= txtQuantity.UniqueID %>', '');
-}
+    }
 
 
 </script>

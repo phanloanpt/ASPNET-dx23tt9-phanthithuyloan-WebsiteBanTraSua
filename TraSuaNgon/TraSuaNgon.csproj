@@ -106,6 +106,7 @@
     <Content Include="Admin\Contact\ContactDetail.aspx" />
     <Content Include="Admin\Contact\ContactList.aspx" />
     <Content Include="Admin\Dashboard.aspx" />
+    <Content Include="Admin\Inventory\InventoryList.aspx" />
     <Content Include="Admin\News\NewsAdd.aspx" />
     <Content Include="Admin\News\NewsEdit.aspx" />
     <Content Include="Admin\News\NewsList.aspx" />
@@ -266,6 +267,13 @@
     <Compile Include="Admin\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Inventory\InventoryList.aspx.cs">
+      <DependentUpon>InventoryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Inventory\InventoryList.aspx.designer.cs">
+      <DependentUpon>InventoryList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\News\NewsAdd.aspx.cs">
       <DependentUpon>NewsAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -365,16 +373,20 @@
       <DependentUpon>Users.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\BLL\ContactBLL.cs" />
+    <Compile Include="App_Code\BLL\InventoryBLL.cs" />
     <Compile Include="App_Code\BLL\OrderBLL.cs" />
     <Compile Include="App_Code\BLL\ToppingBLL.cs" />
     <Compile Include="App_Code\BLL\UserBLL.cs" />
     <Compile Include="App_Code\DAL\ContactDAL.cs" />
+    <Compile Include="App_Code\DAL\InventoryDAL.cs" />
     <Compile Include="App_Code\DAL\NewsDAL.cs" />
     <Compile Include="App_Code\DAL\OrderDAL.cs" />
     <Compile Include="App_Code\DAL\ToppingDAL.cs" />
     <Compile Include="App_Code\DAL\UserDAL.cs" />
     <Compile Include="App_Code\Models\CartItem.cs" />
     <Compile Include="App_Code\Models\ContactMessage.cs" />
+    <Compile Include="App_Code\Models\Inventory.cs" />
+    <Content Include="App_Code\Models\InventoryLog.cs" />
     <Compile Include="App_Code\Models\News.cs" />
     <Compile Include="App_Code\BLL\NewsBLL.cs" />
     <Compile Include="App_Code\DAL\Database.cs" />
@@ -531,7 +543,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\Inventory\" />
     <Folder Include="Admin\Reports\" />
     <Folder Include="App_Data\" />
     <Folder Include="Assets\css\" />
