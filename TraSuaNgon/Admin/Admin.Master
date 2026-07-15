@@ -351,11 +351,11 @@ Liên hệ khách hàng
 
 <!-- Reports -->
 
-<a href="<%= ResolveUrl("~/Admin/Reports/Reports.aspx") %>">
+<a href="<%= ResolveUrl("~/Admin/Reports/ReportDashboard.aspx") %>">
 
 <i class="fa-solid fa-chart-column"></i>
 
-Báo cáo
+Báo cáo thống kê
 
 </a>
 

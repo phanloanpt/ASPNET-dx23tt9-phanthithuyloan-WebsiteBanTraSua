@@ -117,6 +117,7 @@
     <Content Include="Admin\Products\ProductDelete.aspx" />
     <Content Include="Admin\Products\ProductEdit.aspx" />
     <Content Include="Admin\Products\ProductList.aspx" />
+    <Content Include="Admin\Reports\ReportDashboard.aspx" />
     <Content Include="Admin\Toppings\ToppingAdd.aspx" />
     <Content Include="Admin\Toppings\ToppingEdit.aspx" />
     <Content Include="Admin\Toppings\ToppingList.aspx" />
@@ -352,6 +353,13 @@
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Reports\ReportDashboard.aspx.cs">
+      <DependentUpon>ReportDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Reports\ReportDashboard.aspx.designer.cs">
+      <DependentUpon>ReportDashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Toppings\ToppingAdd.aspx.cs">
       <DependentUpon>ToppingAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -384,6 +392,7 @@
     <Compile Include="App_Code\BLL\InventoryBLL.cs" />
     <Compile Include="App_Code\BLL\InventoryLogBLL.cs" />
     <Compile Include="App_Code\BLL\OrderBLL.cs" />
+    <Compile Include="App_Code\BLL\ReportBLL.cs" />
     <Compile Include="App_Code\BLL\ToppingBLL.cs" />
     <Compile Include="App_Code\BLL\UserBLL.cs" />
     <Compile Include="App_Code\DAL\ContactDAL.cs" />
@@ -391,12 +400,15 @@
     <Compile Include="App_Code\DAL\InventoryLogDAL.cs" />
     <Compile Include="App_Code\DAL\NewsDAL.cs" />
     <Compile Include="App_Code\DAL\OrderDAL.cs" />
+    <Compile Include="App_Code\DAL\ReportDAL.cs" />
     <Compile Include="App_Code\DAL\ToppingDAL.cs" />
     <Compile Include="App_Code\DAL\UserDAL.cs" />
+    <Compile Include="App_Code\Models\BestSellerModel.cs" />
     <Compile Include="App_Code\Models\CartItem.cs" />
     <Compile Include="App_Code\Models\ContactMessage.cs" />
     <Compile Include="App_Code\Models\Inventory.cs" />
     <Compile Include="App_Code\Models\InventoryLog.cs" />
+    <Compile Include="App_Code\Models\LowStockModel.cs" />
     <Compile Include="App_Code\Models\News.cs" />
     <Compile Include="App_Code\BLL\NewsBLL.cs" />
     <Compile Include="App_Code\DAL\Database.cs" />
@@ -410,6 +422,7 @@
     <Compile Include="App_Code\Models\Product.cs" />
     <Compile Include="App_Code\DAL\ProductDAL.cs" />
     <Compile Include="App_Code\BLL\ProductBLL.cs" />
+    <Compile Include="App_Code\Models\ReportModel.cs" />
     <Compile Include="App_Code\Models\Topping.cs" />
     <Compile Include="App_Code\Models\User.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -553,7 +566,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\Reports\" />
     <Folder Include="App_Data\" />
     <Folder Include="Assets\css\" />
     <Folder Include="Assets\images\banners\" />
