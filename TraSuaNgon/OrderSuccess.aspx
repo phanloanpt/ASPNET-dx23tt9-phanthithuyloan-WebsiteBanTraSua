@@ -5,300 +5,349 @@
     CodeBehind="OrderSuccess.aspx.cs"
     Inherits="TraSuaNgon.OrderSuccess" %>
 
+
 <asp:Content ID="Content1"
     ContentPlaceHolderID="MainContent"
     runat="server">
 
-<div class="container mt-4 mb-5">
+<div class="container mt-5 mb-5">
 
-    <div class="receipt shadow-sm" id="invoiceArea">
+    <div class="order-card shadow">
 
         <!-- HEADER -->
-        <div class="text-center">
+        <div class="text-center mb-4">
+
+            <div class="success-icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
 
             <h2 class="store-name">
                 TRÀ SỮA NGON
             </h2>
 
-            <div class="receipt-title">
-                PHIẾU THANH TOÁN
-            </div>
+            <h3 class="success-title">
+                Đặt hàng thành công 🎉
+            </h3>
 
-            <div class="small-text">
-                123 Đường ABC, TP.HCM
-            </div>
-
-            <div class="small-text">
-                Hotline: 0909 999 999
-            </div>
-
-            <div class="small-text">
-                08:00 - 22:00
-            </div>
-
-        </div>
-
-        <hr />
-
-        <!-- THÔNG TIN ĐƠN -->
-        <table class="info-table">
-
-            <tr>
-                <td>Mã đơn</td>
-                <td class="text-end">
-                    #<asp:Label
-                        ID="lblOrderID"
-                        runat="server">
-                    </asp:Label>
-                </td>
-            </tr>
-
-            <tr>
-                <td>Ngày</td>
-                <td class="text-end">
-                    <asp:Label
-                        ID="lblOrderDate"
-                        runat="server">
-                    </asp:Label>
-                </td>
-            </tr>
-
-            <tr>
-                <td>Khách</td>
-                <td class="text-end">
-                    <asp:Label
-                        ID="lblCustomerName"
-                        runat="server">
-                    </asp:Label>
-                </td>
-            </tr>
-
-            <tr>
-                <td>SĐT</td>
-                <td class="text-end">
-                    <asp:Label
-                        ID="lblPhone"
-                        runat="server">
-                    </asp:Label>
-                </td>
-            </tr>
-
-        </table>
-
-        <hr />
-
-        <!-- CHI TIẾT -->
-        <asp:GridView
-            ID="gvOrderDetails"
-            runat="server"
-            AutoGenerateColumns="False"
-            CssClass="table receipt-table"
-            GridLines="None">
-
-            <Columns>
-
-                <asp:BoundField
-                    HeaderText="Sản phẩm"
-                    DataField="ProductName" />
-
-                <asp:BoundField
-                    HeaderText="SL"
-                    DataField="Quantity" />
-
-                <asp:BoundField
-                    HeaderText="Đơn giá"
-                    DataField="UnitPrice"
-                    DataFormatString="{0:N0}" />
-
-                <asp:BoundField
-                    HeaderText="TT"
-                    DataField="SubTotal"
-                    DataFormatString="{0:N0}" />
-
-            </Columns>
-
-        </asp:GridView>
-
-        <hr />
-
-        <!-- TỔNG TIỀN -->
-        <table class="info-table">
-
-            <tr>
-                <td>
-                    <strong>Tổng tiền</strong>
-                </td>
-
-                <td class="text-end">
-                    <strong>
-                        <asp:Label
-                            ID="lblTotal"
-                            runat="server">
-                        </asp:Label> đ
-                    </strong>
-                </td>
-            </tr>
-
-            <tr>
-                <td>Thanh toán</td>
-                <td class="text-end">
-                    COD
-                </td>
-            </tr>
-
-        </table>
-
-        <hr />
-
-        <!-- FOOTER -->
-        <div class="text-center">
-
-            <p class="mb-1">
-                ♥ Cảm ơn quý khách đã sử dụng dịch vụ ♥
+            <p class="text-muted">
+                Cảm ơn quý khách đã đặt hàng.
+                Đơn hàng của bạn đang được xử lý.
             </p>
 
-            <strong>
-                TRÀ SỮA NGON
-            </strong>
+        </div>
 
-            <div class="small-text">
-                Hotline: 0909 999 999
-            </div>
+
+        <!-- THÔNG TIN ĐƠN -->
+        <div class="section-box">
+
+            <h5>
+                <i class="fa-solid fa-receipt"></i>
+                Thông tin đơn hàng
+            </h5>
+
+            <table class="info-table">
+
+                <tr>
+                    <td>Mã đơn hàng</td>
+                    <td>
+                        #<asp:Label 
+                            ID="lblOrderID"
+                            runat="server">
+                        </asp:Label>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Ngày đặt</td>
+                    <td>
+                        <asp:Label
+                            ID="lblOrderDate"
+                            runat="server">
+                        </asp:Label>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Thanh toán</td>
+                    <td>
+                        COD
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Trạng thái</td>
+                    <td>
+                        <span class="badge bg-warning text-dark">
+                            Đang xử lý
+                        </span>
+                    </td>
+                </tr>
+
+            </table>
 
         </div>
 
+
+
+        <!-- KHÁCH HÀNG -->
+        <div class="section-box">
+
+            <h5>
+                <i class="fa-solid fa-user"></i>
+                Thông tin khách hàng
+            </h5>
+
+
+            <table class="info-table">
+
+                <tr>
+                    <td>Họ tên</td>
+                    <td>
+                        <asp:Label
+                            ID="lblCustomerName"
+                            runat="server">
+                        </asp:Label>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Số điện thoại</td>
+                    <td>
+                        <asp:Label
+                            ID="lblPhone"
+                            runat="server">
+                        </asp:Label>
+                    </td>
+                </tr>
+
+
+            </table>
+
+        </div>
+
+
+
+
+        <!-- CHI TIẾT MÓN -->
+        <div class="section-box">
+
+            <h5>
+                <i class="fa-solid fa-mug-hot"></i>
+                Chi tiết món đã đặt
+            </h5>
+
+
+            <asp:GridView
+                ID="gvOrderDetails"
+                runat="server"
+                AutoGenerateColumns="False"
+                CssClass="table order-table"
+                GridLines="None">
+
+
+                <Columns>
+
+
+                    <asp:BoundField
+                        HeaderText="Sản phẩm"
+                        DataField="ProductName" />
+
+
+                    <asp:BoundField
+                        HeaderText="SL"
+                        DataField="Quantity" />
+
+
+                    <asp:BoundField
+                        HeaderText="Đơn giá"
+                        DataField="UnitPrice"
+                        DataFormatString="{0:N0} đ" />
+
+
+                    <asp:BoundField
+                        HeaderText="Thành tiền"
+                        DataField="SubTotal"
+                        DataFormatString="{0:N0} đ" />
+
+
+                </Columns>
+
+
+            </asp:GridView>
+
+
+        </div>
+
+
+
+
+        <!-- TỔNG -->
+        <div class="total-box">
+
+            <span>
+                Tổng thanh toán
+            </span>
+
+
+            <strong>
+
+                <asp:Label
+                    ID="lblTotal"
+                    runat="server">
+                </asp:Label>
+
+                đ
+
+            </strong>
+
+        </div>
+
+
+
+        <!-- FOOTER -->
+        <div class="text-center mt-4">
+
+            <p>
+                ❤️ Trà Sữa NGON rất vui được phục vụ quý khách ❤️
+            </p>
+
+
+            <a href="Default.aspx"
+               class="btn btn-danger">
+
+                <i class="fa-solid fa-house"></i>
+                Về trang chủ
+
+            </a>
+
+
+            <a href="Menu.aspx"
+               class="btn btn-outline-danger ms-2">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+                Mua thêm
+
+            </a>
+
+        </div>
+
+
     </div>
 
-    <!-- BUTTON -->
-    <div class="text-center mt-4 no-print">
-
-        <button type="button"
-            class="btn btn-dark me-2"
-            onclick="window.print()">
-
-            <i class="fa-solid fa-print"></i>
-            In hóa đơn
-
-        </button>
-
-        <a href="Default.aspx"
-            class="btn btn-danger">
-
-            <i class="fa-solid fa-house"></i>
-            Về trang chủ
-
-        </a>
-
-    </div>
 
 </div>
 
 
+
 <style>
 
-.receipt
+.order-card
 {
-    width:320px;
+    max-width:750px;
     margin:auto;
-    padding:20px;
     background:white;
-    border:1px dashed #999;
-    font-family:Consolas, monospace;
-    font-size:14px;
+    padding:35px;
+    border-radius:20px;
 }
+
+
+.success-icon
+{
+    font-size:55px;
+    color:#28a745;
+}
+
 
 .store-name
 {
-    font-size:28px;
+    color:#e91e63;
     font-weight:bold;
-    margin-bottom:5px;
 }
 
-.receipt-title
+
+.success-title
 {
-    font-size:22px;
     font-weight:bold;
-    margin-bottom:10px;
+    margin-top:10px;
 }
 
-.small-text
+
+
+.section-box
 {
-    font-size:12px;
+    background:#fafafa;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
 }
+
+
+
+.section-box h5
+{
+    color:#e91e63;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+
 
 .info-table
 {
     width:100%;
 }
 
+
 .info-table td
 {
-    padding:4px 0;
+    padding:8px;
 }
 
-.receipt-table
+
+.info-table td:first-child
 {
-    width:100%;
-    font-size:13px;
+    font-weight:600;
+    width:40%;
 }
 
-.receipt-table th
+
+
+.order-table th
 {
-    text-align:center;
-    border-bottom:1px dashed #999 !important;
+    background:#f8f9fa;
 }
 
-.receipt-table td
+
+.order-table td,
+.order-table th
 {
-    border:none !important;
-    padding:6px 2px !important;
+    padding:12px !important;
 }
 
-hr
+
+
+.total-box
 {
-    border-top:1px dashed #999;
-    margin:12px 0;
+    display:flex;
+    justify-content:space-between;
+    background:#fff0f5;
+    padding:20px;
+    border-radius:15px;
+    font-size:20px;
 }
 
-/* IN HÓA ĐƠN */
-@media print
+
+.total-box strong
 {
-    body *
-    {
-        visibility:hidden;
-    }
-
-    #invoiceArea,
-    #invoiceArea *
-    {
-        visibility:visible;
-    }
-
-    #invoiceArea
-    {
-        position:absolute;
-        left:0;
-        top:0;
-        width:80mm;
-        border:none;
-        box-shadow:none;
-        margin:0;
-        padding:10px;
-    }
-
-    .no-print
-    {
-        display:none !important;
-    }
-
-    header,
-    footer,
-    .navbar
-    {
-        display:none !important;
-    }
+    color:#e91e63;
 }
+
 
 </style>
+
 
 </asp:Content>

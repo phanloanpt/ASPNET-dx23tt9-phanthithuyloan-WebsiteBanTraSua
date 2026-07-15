@@ -15,9 +15,9 @@
 <!-- ================= CAROUSEL ================= -->
    <style> #mainCarousel
 {
-    width:100vw;
-    margin-left:calc(50% - 50vw);
-    margin-top:-40px;
+  
+    
+    margin-top:-30px;
 }
 
 .banner-img
@@ -27,6 +27,8 @@
 }
        </style>
 
+
+<div class="container">
 <div id="mainCarousel" 
      class="carousel slide" 
      data-bs-ride="carousel">
@@ -84,7 +86,7 @@
 
     </button>
 
-
+    </div>
 </div>
 
 <!-- ================= TÌM KIẾM ================= -->
