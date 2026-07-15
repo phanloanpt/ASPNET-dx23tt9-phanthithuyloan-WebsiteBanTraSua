@@ -73,11 +73,11 @@ namespace TraSuaNgon.Admin.Orders
             lblPhone.Text =
                 order.Phone;
 
-
             lblAddress.Text =
                 order.ShippingAddress;
 
-
+            lblTotal.Text =
+                order.TotalAmount.ToString("N0") + " đ";
 
             if (ddlStatus.Items.FindByValue(order.Status) != null)
             {
@@ -119,7 +119,13 @@ namespace TraSuaNgon.Admin.Orders
             LoadOrder();
 
         }
-
+        protected void btnBack_Click(
+    object sender,
+    EventArgs e)
+        {
+            Response.Redirect(
+                "OrderList.aspx");
+        }
 
     }
 }

@@ -73,51 +73,54 @@ runat="server"/>
 
 </p>
 
+<p>
+    <b>Tổng tiền:</b>
 
+    <asp:Label
+        ID="lblTotal"
+        runat="server"
+        CssClass="text-danger fw-bold fs-5" />
+</p>
 
 <hr />
 
 
 
-<asp:GridView 
-ID="gvDetail"
-runat="server"
-CssClass="table table-bordered"
-AutoGenerateColumns="false">
+<asp:GridView
+    ID="gvDetail"
+    runat="server"
+    CssClass="table table-bordered"
+    AutoGenerateColumns="false">
 
+    <Columns>
 
-<Columns>
+        <asp:BoundField
+            DataField="ProductName"
+            HeaderText="Sản phẩm" />
 
+        <asp:BoundField
+            DataField="Size"
+            HeaderText="Size" />
 
-<asp:BoundField
-DataField="ProductName"
-HeaderText="Sản phẩm" />
+        <asp:BoundField
+            DataField="ToppingName"
+            HeaderText="Topping" />
 
+        <asp:BoundField
+            DataField="Quantity"
+            HeaderText="Số lượng" />
 
-<asp:BoundField
-DataField="Size"
-HeaderText="Size" />
+        <asp:BoundField
+            DataField="UnitPrice"
+            HeaderText="Đơn giá"
+            DataFormatString="{0:N0} đ" />
 
+        <asp:BoundField
+            DataField="SubTotal"
+            HeaderText="Thành tiền"
+            DataFormatString="{0:N0} đ" />
 
-<asp:BoundField
-DataField="Quantity"
-HeaderText="Số lượng" />
-
-
-<asp:BoundField
-DataField="UnitPrice"
-HeaderText="Đơn giá"
-DataFormatString="{0:N0} đ" />
-
-<asp:BoundField
-DataField="SubTotal"
-HeaderText="Thành tiền"
-DataFormatString="{0:N0} đ" />
-
-
-
-</Columns>
-
+    </Columns>
 
 </asp:GridView>
 
@@ -187,7 +190,12 @@ CssClass="btn btn-danger mt-3"
 
 OnClick="btnUpdate_Click"/>
 
-
+<asp:Button
+    ID="btnBack"
+    runat="server"
+    Text="← Quay lại danh sách"
+    CssClass="btn btn-secondary mt-3 ms-2"
+    OnClick="btnBack_Click" />
 
 </div>
 
