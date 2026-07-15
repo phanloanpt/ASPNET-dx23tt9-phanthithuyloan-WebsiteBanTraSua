@@ -90,7 +90,13 @@ Text="Nhập kho"
 CssClass="btn btn-danger"
 OnClick="btnImport_Click"/>
 
+<a href="InventoryList.aspx"
+class="btn btn-secondary ms-2">
 
+<i class="fa fa-arrow-left"></i>
+Quay về kho vật tư
+
+</a>
 
 <asp:Label
 ID="lblMessage"

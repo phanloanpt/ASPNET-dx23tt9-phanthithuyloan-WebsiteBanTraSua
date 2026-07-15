@@ -113,6 +113,7 @@
     <Content Include="Admin\News\NewsList.aspx" />
     <Content Include="Admin\Orders\OrderDetail.aspx" />
     <Content Include="Admin\Orders\OrderList.aspx" />
+    <Content Include="Admin\Orders\PrintInvoice.aspx" />
     <Content Include="Admin\Products\ProductAdd.aspx" />
     <Content Include="Admin\Products\ProductDelete.aspx" />
     <Content Include="Admin\Products\ProductEdit.aspx" />
@@ -317,6 +318,13 @@
     </Compile>
     <Compile Include="Admin\Orders\OrderList.aspx.designer.cs">
       <DependentUpon>OrderList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Orders\PrintInvoice.aspx.cs">
+      <DependentUpon>PrintInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Orders\PrintInvoice.aspx.designer.cs">
+      <DependentUpon>PrintInvoice.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Products\ProductAdd.aspx.cs">
       <DependentUpon>ProductAdd.aspx</DependentUpon>

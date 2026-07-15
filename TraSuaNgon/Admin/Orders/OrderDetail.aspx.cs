@@ -1,58 +1,58 @@
 ﻿using System;
+using System.Collections.Generic;
 using BLL;
 using Model;
-
+using InventoryModel = Model.Inventory;
+using OrderDetailModel = Model.OrderDetail;
 
 namespace TraSuaNgon.Admin.Orders
 {
-    public partial class OrderDetail : System.Web.UI.Page
+    public partial class OrderDetail :
+        System.Web.UI.Page
     {
-
         private OrderBLL orderBLL =
             new OrderBLL();
-
 
         private InventoryBLL inventoryBLL =
             new InventoryBLL();
 
-
-
-        private int OrderID
+        protected int OrderID
         {
             get
             {
-                if (Request.QueryString["id"] == null)
-                    return 0;
+                int id;
 
-                return Convert.ToInt32(
-                    Request.QueryString["id"]);
+                if (int.TryParse(
+                    Request.QueryString["id"],
+                    out id))
+                {
+                    return id;
+                }
+
+                return 0;
             }
         }
-
-
-
-
 
         protected void Page_Load(
             object sender,
             EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 LoadOrder();
-            }
 
+                // link in hóa đơn
+                lnkPrint.NavigateUrl =
+                    "PrintInvoice.aspx?id="
+                    + OrderID;
+            }
         }
 
-
-
-
-
-
+        // ===============================
+        // LOAD ĐƠN HÀNG
+        // ===============================
         private void LoadOrder()
         {
-
             if (OrderID == 0)
             {
                 Response.Redirect(
@@ -61,15 +61,9 @@ namespace TraSuaNgon.Admin.Orders
                 return;
             }
 
-
-
-
             Order order =
                 orderBLL.GetOrderByID(
                     OrderID);
-
-
-
 
             if (order == null)
             {
@@ -79,245 +73,142 @@ namespace TraSuaNgon.Admin.Orders
                 return;
             }
 
-
-
-
             lblOrderID.Text =
                 order.OrderID.ToString();
-
-
 
             lblCustomer.Text =
                 order.CustomerName;
 
-
-
             lblPhone.Text =
                 order.Phone;
 
-
-
             lblAddress.Text =
                 order.ShippingAddress;
-
-
 
             lblTotal.Text =
                 order.TotalAmount.ToString("N0")
                 + " đ";
 
+            lblOrderDate.Text =
+                order.OrderDate.ToString(
+                    "dd/MM/yyyy HH:mm");
 
-
-
-            if (ddlStatus.Items.FindByValue(order.Status) != null)
+            if (ddlStatus.Items.FindByValue(
+                order.Status) != null)
             {
                 ddlStatus.SelectedValue =
                     order.Status;
             }
 
-
-
-
-
-            var detailList =
-                orderBLL.GetOrderDetails(
-                    OrderID);
-
-
-
+            List<OrderDetailModel> detailList =
+     orderBLL.GetOrderDetails(OrderID);
 
             gvDetail.DataSource =
                 detailList;
 
-
-
             gvDetail.DataBind();
-
         }
 
-
-
-
-
-
-
-
-
         // ===============================
-        // CẬP NHẬT TRẠNG THÁI + TRỪ KHO
+        // CẬP NHẬT TRẠNG THÁI
         // ===============================
-
         protected void btnUpdate_Click(
             object sender,
             EventArgs e)
         {
-
             Order oldOrder =
                 orderBLL.GetOrderByID(
                     OrderID);
 
-
+            if (oldOrder == null)
+                return;
 
             string oldStatus =
                 oldOrder.Status;
 
-
-
             string newStatus =
                 ddlStatus.SelectedValue;
 
+            bool result =
+                orderBLL.UpdateStatus(
+                    OrderID,
+                    newStatus);
 
-
-
-            orderBLL.UpdateStatus(
-                OrderID,
-                newStatus);
-
-
-
-
-
-            // chỉ trừ kho khi chuyển sang Hoàn thành lần đầu
-
-            if (oldStatus != "Hoàn thành"
-                &&
-                newStatus == "Hoàn thành")
+            if (result)
             {
+                // Chỉ trừ kho 1 lần duy nhất
+                if (oldStatus != "Hoàn thành"
+                    &&
+                    newStatus == "Hoàn thành")
+                {
+                    ExportInventory();
+                }
 
-                ExportInventory();
-
+                LoadOrder();
             }
-
-
-
-
-            LoadOrder();
-
         }
 
-
-
-
-
-
-
-
-
         // ===============================
-        // XỬ LÝ TRỪ KHO
+        // TRỪ KHO
         // ===============================
-
         private void ExportInventory()
         {
+            List<OrderDetailModel> details =
+     orderBLL.GetOrderDetails(OrderID);
 
-            var details =
-                orderBLL.GetOrderDetails(
-                    OrderID);
-
-
-
-
-            foreach (var item in details)
+            foreach (OrderDetailModel item in details)
             {
-
-
                 if (item.Size == "M")
                 {
-
                     ExportItem(
                         "Ly size M",
                         item.Quantity);
 
-
-
                     ExportItem(
                         "Nắp size M",
                         item.Quantity);
-
                 }
-
                 else
                 {
-
                     ExportItem(
                         "Ly size L",
                         item.Quantity);
 
-
-
                     ExportItem(
                         "Nắp size L",
                         item.Quantity);
-
                 }
-
-
-
-
 
                 ExportItem(
                     "Ống hút",
                     item.Quantity);
-
             }
-
         }
-
-
-
-
-
-
-
-
 
         private void ExportItem(
             string itemName,
             int quantity)
         {
-
-            Model.Inventory item =
-                inventoryBLL.GetByName(
-                    itemName);
-
-
-
+            InventoryModel item =
+    inventoryBLL.GetByName(itemName);
 
             if (item == null)
                 return;
 
-
-
-
-
             inventoryBLL.Export(
                 item.InventoryID,
                 quantity);
-
         }
 
-
-
-
-
-
-
-
-
         // ===============================
-        // QUAY LẠI DANH SÁCH ĐƠN HÀNG
+        // QUAY LẠI
         // ===============================
-
         protected void btnBack_Click(
             object sender,
             EventArgs e)
         {
-
             Response.Redirect(
                 "OrderList.aspx");
-
         }
-
-
     }
 }

@@ -165,6 +165,11 @@ namespace TraSuaNgon.Admin.Inventory
 
         }
 
-
+        protected void btnBack_Click(
+    object sender,
+    EventArgs e)
+        {
+            Response.Redirect("InventoryImport.aspx");
+        }
     }
 }

@@ -64,8 +64,8 @@ namespace TraSuaNgon
             lblTotal.Text =
                 order.TotalAmount.ToString("N0");
 
-            List<OrderDetail> details =
-                orderBLL.GetOrderDetails(orderID);
+            List<Model.OrderDetail> details =
+    orderBLL.GetOrderDetails(orderID);
 
             gvOrderDetails.DataSource =
                 details;
