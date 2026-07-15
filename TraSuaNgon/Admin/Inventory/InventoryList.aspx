@@ -6,11 +6,19 @@
     Inherits="TraSuaNgon.Admin.Inventory.InventoryList" %>
 
 
+
+
 <asp:Content ID="Content1"
     ContentPlaceHolderID="MainContent"
     runat="server">
 
+<a href="InventoryImport.aspx"
+class="btn btn-danger mb-3">
 
+<i class="fa fa-plus"></i>
+Nhập kho
+
+</a>
 <div class="container-fluid mt-4">
 
 

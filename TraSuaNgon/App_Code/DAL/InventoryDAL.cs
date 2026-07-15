@@ -212,5 +212,51 @@ namespace DAL
                 cmd.ExecuteNonQuery();
             }
         }
+        public void Import(
+    int inventoryID,
+    int quantity)
+        {
+
+            using (SqlConnection conn =
+                Database.GetConnection())
+            {
+
+                string sql = @"
+
+UPDATE Inventory
+
+SET Quantity = Quantity + @Quantity,
+    UpdatedDate = GETDATE()
+
+WHERE InventoryID=@InventoryID
+
+";
+
+
+                SqlCommand cmd =
+                    new SqlCommand(sql, conn);
+
+
+
+                cmd.Parameters.AddWithValue(
+                    "@Quantity",
+                    quantity);
+
+
+
+                cmd.Parameters.AddWithValue(
+                    "@InventoryID",
+                    inventoryID);
+
+
+
+                conn.Open();
+
+
+                cmd.ExecuteNonQuery();
+
+            }
+
+        }
     }
 }

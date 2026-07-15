@@ -9,16 +9,19 @@ namespace BLL
         private InventoryDAL dal =
             new InventoryDAL();
 
+
         public List<Inventory> GetAll()
         {
             return dal.GetAll();
         }
+
 
         public Inventory GetByName(
             string name)
         {
             return dal.GetByName(name);
         }
+
 
         public void UpdateQuantity(
             int inventoryID,
@@ -29,6 +32,7 @@ namespace BLL
                 quantity);
         }
 
+
         public void Export(
             int inventoryID,
             int quantity)
@@ -37,5 +41,16 @@ namespace BLL
                 inventoryID,
                 quantity);
         }
+
+
+        public void Import(
+            int inventoryID,
+            int quantity)
+        {
+            dal.Import(
+                inventoryID,
+                quantity);
+        }
+
     }
 }
