@@ -105,5 +105,112 @@ namespace DAL
 
         }
 
+        public Inventory GetByName(string name)
+        {
+            Inventory item = null;
+
+            using (SqlConnection conn = Database.GetConnection())
+            {
+                string sql = @"
+        SELECT *
+        FROM Inventory
+        WHERE ItemName = @ItemName";
+
+                SqlCommand cmd =
+                    new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue(
+                    "@ItemName",
+                    name);
+
+                conn.Open();
+
+                SqlDataReader reader =
+                    cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    item = new Inventory();
+
+                    item.InventoryID =
+                        Convert.ToInt32(
+                            reader["InventoryID"]);
+
+                    item.ItemName =
+                        reader["ItemName"].ToString();
+
+                    item.Unit =
+                        reader["Unit"].ToString();
+
+                    item.Quantity =
+                        Convert.ToInt32(
+                            reader["Quantity"]);
+
+                    item.MinimumQuantity =
+                        Convert.ToInt32(
+                            reader["MinimumQuantity"]);
+                }
+            }
+
+            return item;
+        }
+        public void UpdateQuantity(
+    int inventoryID,
+    int quantity)
+        {
+            using (SqlConnection conn =
+                Database.GetConnection())
+            {
+                string sql = @"
+        UPDATE Inventory
+        SET Quantity = @Quantity,
+            UpdatedDate = GETDATE()
+        WHERE InventoryID = @InventoryID";
+
+                SqlCommand cmd =
+                    new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue(
+                    "@Quantity",
+                    quantity);
+
+                cmd.Parameters.AddWithValue(
+                    "@InventoryID",
+                    inventoryID);
+
+                conn.Open();
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public void Export(
+    int inventoryID,
+    int quantity)
+        {
+            using (SqlConnection conn =
+                Database.GetConnection())
+            {
+                string sql = @"
+        UPDATE Inventory
+        SET Quantity = Quantity - @Quantity,
+            UpdatedDate = GETDATE()
+        WHERE InventoryID = @InventoryID";
+
+                SqlCommand cmd =
+                    new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue(
+                    "@Quantity",
+                    quantity);
+
+                cmd.Parameters.AddWithValue(
+                    "@InventoryID",
+                    inventoryID);
+
+                conn.Open();
+
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }
