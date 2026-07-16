@@ -154,34 +154,22 @@ namespace TraSuaNgon.Admin.Orders
         private void ExportInventory()
         {
             List<OrderDetailModel> details =
-     orderBLL.GetOrderDetails(OrderID);
+                orderBLL.GetOrderDetails(OrderID);
 
             foreach (OrderDetailModel item in details)
             {
                 if (item.Size == "M")
                 {
-                    ExportItem(
-                        "Ly size M",
-                        item.Quantity);
-
-                    ExportItem(
-                        "Nắp size M",
-                        item.Quantity);
+                    ExportItem("Ly size M", item.Quantity);
+                    ExportItem("Nắp size M", item.Quantity);
                 }
                 else
                 {
-                    ExportItem(
-                        "Ly size L",
-                        item.Quantity);
-
-                    ExportItem(
-                        "Nắp size L",
-                        item.Quantity);
+                    ExportItem("Ly size L", item.Quantity);
+                    ExportItem("Nắp size L", item.Quantity);
                 }
 
-                ExportItem(
-                    "Ống hút",
-                    item.Quantity);
+                ExportItem("Ống hút", item.Quantity);
             }
         }
 

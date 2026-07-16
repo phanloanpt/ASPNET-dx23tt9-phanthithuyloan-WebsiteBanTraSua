@@ -14,24 +14,23 @@
 
 <!-- ================= CAROUSEL ================= -->
    <style> #mainCarousel
-{
-  
-    
-    margin-top:-30px;
+#mainCarousel {
+    margin-top: -30px;
 }
 
-.banner-img
-{
-    height:650px;
-    object-fit:cover;
+.banner-img {
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
 }
        </style>
 
 
-<div class="container">
-<div id="mainCarousel" 
-     class="carousel slide" 
-     data-bs-ride="carousel">
+
+<div id="mainCarousel"
+     class="carousel slide"
+     data-bs-ride="carousel"
+     data-bs-interval="3000">
 
 
     <div class="carousel-inner">
@@ -86,7 +85,7 @@
 
     </button>
 
-    </div>
+   
 </div>
 
 <!-- ================= TÌM KIẾM ================= -->
