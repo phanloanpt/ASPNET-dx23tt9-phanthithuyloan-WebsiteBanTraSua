@@ -1,13 +1,19 @@
 ﻿using System;
+using System.Web.UI.WebControls;
 using BLL;
+using Model;
 
 namespace TraSuaNgon.Admin.Products
 {
-    public partial class ProductList : System.Web.UI.Page
+    public partial class ProductList :
+        System.Web.UI.Page
     {
-        ProductBLL productBLL = new ProductBLL();
+        ProductBLL productBLL =
+            new ProductBLL();
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(
+            object sender,
+            EventArgs e)
         {
             if (!IsPostBack)
             {
@@ -23,17 +29,41 @@ namespace TraSuaNgon.Admin.Products
             gvProducts.DataBind();
         }
 
-        protected void gvProducts_RowDeleting(
+        // ===========================
+        // ẨN / HIỆN LẠI SẢN PHẨM
+        // ===========================
+        protected void gvProducts_RowCommand(
             object sender,
-            System.Web.UI.WebControls.GridViewDeleteEventArgs e)
+            GridViewCommandEventArgs e)
         {
-            int productID =
-                Convert.ToInt32(
-                    gvProducts.DataKeys[e.RowIndex].Value);
+            if (e.CommandName == "ToggleStatus")
+            {
+                int productID =
+                    Convert.ToInt32(
+                        e.CommandArgument);
 
-            productBLL.DeleteProduct(productID);
+                Product product =
+                    productBLL.GetProductByIDAdmin(
+                        productID);
 
-            LoadProducts();
+                if (product == null)
+                    return;
+
+                // Nếu đang bán -> Ẩn
+                if (product.Status)
+                {
+                    productBLL.DeleteProduct(
+                        productID);
+                }
+                // Nếu đã ẩn -> Hiện lại
+                else
+                {
+                    productBLL.RestoreProduct(
+                        productID);
+                }
+
+                LoadProducts();
+            }
         }
     }
 }

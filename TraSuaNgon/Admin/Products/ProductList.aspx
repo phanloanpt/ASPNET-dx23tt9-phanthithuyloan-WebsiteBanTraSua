@@ -27,14 +27,13 @@
 
     </div>
 
-
-
-    <asp:GridView ID="gvProducts"
+    <asp:GridView
+        ID="gvProducts"
         runat="server"
         AutoGenerateColumns="False"
         CssClass="table table-bordered table-hover align-middle"
         DataKeyNames="ProductID"
-        OnRowDeleting="gvProducts_RowDeleting">
+        OnRowCommand="gvProducts_RowCommand">
 
         <Columns>
 
@@ -42,73 +41,66 @@
                 DataField="ProductID"
                 HeaderText="ID" />
 
-
-
             <asp:TemplateField HeaderText="Ảnh">
+                <ItemTemplate>
 
-    <ItemTemplate>
+                    <img src='<%# ResolveUrl("~/Assets/images/products/" + Eval("ImageURL")) %>'
+                        style="width:80px;
+                               height:80px;
+                               object-fit:cover;
+                               border-radius:10px;" />
 
-        <img src='<%# ResolveUrl("~/Assets/images/products/" + Eval("ImageURL")) %>'
-            style="width:80px;height:80px;object-fit:cover;border-radius:10px;" />
-
-    </ItemTemplate>
-
-</asp:TemplateField>
-
-
+                </ItemTemplate>
+            </asp:TemplateField>
 
             <asp:BoundField
                 DataField="ProductName"
                 HeaderText="Tên sản phẩm" />
 
-
-
             <asp:BoundField
                 DataField="CategoryName"
                 HeaderText="Danh mục" />
-
-
 
             <asp:BoundField
                 DataField="PriceM"
                 HeaderText="Giá M"
                 DataFormatString="{0:N0}" />
 
-
-
             <asp:BoundField
                 DataField="PriceL"
                 HeaderText="Giá L"
                 DataFormatString="{0:N0}" />
 
-
-
             <asp:CheckBoxField
                 DataField="IsFeatured"
                 HeaderText="Nổi bật" />
-
-
 
             <asp:CheckBoxField
                 DataField="IsNew"
                 HeaderText="Mới" />
 
-
-
             <asp:CheckBoxField
                 DataField="IsBestSeller"
                 HeaderText="Bán chạy" />
 
+            <asp:TemplateField HeaderText="Trạng thái">
+                <ItemTemplate>
 
+                    <span class='<%# Convert.ToBoolean(Eval("Status"))
+                        ? "badge bg-success"
+                        : "badge bg-secondary" %>'>
 
-            <asp:CheckBoxField
-                DataField="Status"
-                HeaderText="Hiển thị" />
+                        <%# Convert.ToBoolean(Eval("Status"))
+                            ? "Đang bán"
+                            : "Đã ẩn" %>
 
+                    </span>
 
+                </ItemTemplate>
+            </asp:TemplateField>
 
+           
             <asp:TemplateField HeaderText="Sửa">
-
                 <ItemTemplate>
 
                     <a href='ProductEdit.aspx?id=<%# Eval("ProductID") %>'
@@ -119,15 +111,26 @@
                     </a>
 
                 </ItemTemplate>
-
             </asp:TemplateField>
 
+           
+            <asp:TemplateField HeaderText="Thao tác">
+                <ItemTemplate>
 
+                    <asp:Button
+                        ID="btnToggle"
+                        runat="server"
+                        CommandName="ToggleStatus"
+                        CommandArgument='<%# Eval("ProductID") %>'
+                        CssClass='<%# Convert.ToBoolean(Eval("Status"))
+                            ? "btn btn-danger btn-sm"
+                            : "btn btn-success btn-sm" %>'
+                        Text='<%# Convert.ToBoolean(Eval("Status"))
+                            ? "Ẩn"
+                            : "Hiện lại" %>' />
 
-            <asp:CommandField
-                ShowDeleteButton="True"
-                DeleteText="Xóa"
-                HeaderText="Xóa" />
+                </ItemTemplate>
+            </asp:TemplateField>
 
         </Columns>
 
